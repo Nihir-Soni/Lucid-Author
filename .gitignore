@@ -1,0 +1,12 @@
+node_modules/
+dist/
+src-tauri/target/
+.DS_Store
+*.log
+verification_*.png
+layout_debug_screenshot.png
+!assets/**
+!build/**
+!www/assets/**
+
+
