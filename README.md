@@ -79,3 +79,4 @@ Lucid-Author/
 ## 📄 License
 
 This project is licensed under the MIT License - feel free to customize and adapt it for your own creative workflows.
+
