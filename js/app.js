@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   Lord Spey — Author's Workspace Controller
+   Lucid Author — Author's Workspace Controller
    Wires up UI, Living Galaxy Cosmos Graph,
    Live Split View, Outline Navigator, Word Goal Tracker,
    Fantasy Name Forge, and Obsidian Wiki-links
@@ -32,257 +32,257 @@
     return [...(ctx.querySelectorAll(resolved) || [])];
   };
 
-  const sidebar         = $('#sidebar');
-  const sidebarToggle   = $('#sidebar-toggle');
-  const sidebarExpand   = $('#sidebar-expand');
+  const sidebar = $('#sidebar');
+  const sidebarToggle = $('#sidebar-toggle');
+  const sidebarExpand = $('#sidebar-expand');
   const sidebarBackdrop = $('#sidebar-backdrop');
-  const searchInput     = $('#search-input');
-  const logoHome        = $('#logo-home');
+  const searchInput = $('#search-input');
+  const logoHome = $('#logo-home');
   const btnTutorialSidebar = $('#btn-tutorial-sidebar');
 
   // Cinematic Intro Splash
-  const introSplash     = $('#intro-splash');
-  const introSkipBtn    = $('#intro-skip-btn');
-  const menuEmblem      = $('#menu-emblem');
+  const introSplash = $('#intro-splash');
+  const introSkipBtn = $('#intro-skip-btn');
+  const menuEmblem = $('#menu-emblem');
 
   // Main Menu & Editor
-  const mainMenu          = $('#main-menu');
-  const menuBtnTutorial   = $('#menu-btn-tutorial');
-  const menuBtnGraph      = $('#menu-btn-graph');
-  const menuBtnSwitcher   = $('#menu-btn-switcher');
-  const menuBtnSample     = $('#menu-btn-sample');
+  const mainMenu = $('#main-menu');
+  const menuBtnTutorial = $('#menu-btn-tutorial');
+  const menuBtnGraph = $('#menu-btn-graph');
+  const menuBtnSwitcher = $('#menu-btn-switcher');
+  const menuBtnSample = $('#menu-btn-sample');
   const menuRecentSection = $('#menu-recent-section');
-  const menuRecentGrid    = $('#menu-recent-grid');
+  const menuRecentGrid = $('#menu-recent-grid');
 
-  const editorArea      = $('#editor-area');
-  const editorBodyWrap  = $('#editor-body-wrap');
-  const btnBackMenu     = $('#btn-back-menu');
-  const noteTitle       = $('#note-title');
-  const noteTags        = $('#note-tags');
-  const noteCategory    = $('#note-category');
-  const noteBody        = $('#note-body');
-  const notePreview     = $('#note-preview');
-  const wordCount       = $('#word-count');
-  const readingTime     = $('#reading-time');
-  const saveStatus      = $('#save-status');
+  const editorArea = $('#editor-area');
+  const editorBodyWrap = $('#editor-body-wrap');
+  const btnBackMenu = $('#btn-back-menu');
+  const noteTitle = $('#note-title');
+  const noteTags = $('#note-tags');
+  const noteCategory = $('#note-category');
+  const noteBody = $('#note-body');
+  const notePreview = $('#note-preview');
+  const wordCount = $('#word-count');
+  const readingTime = $('#reading-time');
+  const saveStatus = $('#save-status');
 
   // Author Features
-  const btnSplit        = $('#btn-split');
-  const btnOutline      = $('#btn-outline');
-  const outlineDrawer   = $('#outline-drawer');
-  const outlineList     = $('#outline-list');
+  const btnSplit = $('#btn-split');
+  const btnOutline = $('#btn-outline');
+  const outlineDrawer = $('#outline-drawer');
+  const outlineList = $('#outline-list');
   const btnCloseOutline = $('#btn-close-outline');
 
-  const metaGoal        = $('#meta-goal');
-  const goalProgress    = $('#goal-progress');
-  const goalFill        = $('#goal-fill');
-  const goalModal       = $('#goal-modal');
+  const metaGoal = $('#meta-goal');
+  const goalProgress = $('#goal-progress');
+  const goalFill = $('#goal-fill');
+  const goalModal = $('#goal-modal');
 
   // ── Obsidian Activity Ribbon (v2.0) ──
-  const activityRibbon       = $('#activity-ribbon');
-  const btnRibbonVault       = $('#btn-ribbon-vault');
-  const btnRibbonSearch      = $('#btn-ribbon-search');
-  const btnRibbonGraph       = $('#btn-ribbon-graph');
-  const btnRibbonMap         = $('#btn-ribbon-map');
-  const btnRibbonTimeline    = $('#btn-ribbon-timeline');
-  const btnRibbonCodex       = $('#btn-ribbon-codex');
-  const btnRibbonSprint      = $('#btn-ribbon-sprint');
-  const btnRibbonHelp        = $('#btn-ribbon-help');
-  const btnRibbonSettings    = $('#btn-ribbon-settings');
+  const activityRibbon = $('#activity-ribbon');
+  const btnRibbonVault = $('#btn-ribbon-vault');
+  const btnRibbonSearch = $('#btn-ribbon-search');
+  const btnRibbonGraph = $('#btn-ribbon-graph');
+  const btnRibbonMap = $('#btn-ribbon-map');
+  const btnRibbonTimeline = $('#btn-ribbon-timeline');
+  const btnRibbonCodex = $('#btn-ribbon-codex');
+  const btnRibbonSprint = $('#btn-ribbon-sprint');
+  const btnRibbonHelp = $('#btn-ribbon-help');
+  const btnRibbonSettings = $('#btn-ribbon-settings');
 
   // ── Obsidian Workspace Tabs Bar (v2.0) ──
-  const workspaceTabsBar     = $('#workspace-tabs-bar');
-  const activeTabTitle       = $('#active-tab-title');
-  const btnTabClose          = $('#btn-tab-close');
-  const btnTabNew            = $('#btn-tab-new');
-  const btnTabReadingMode    = $('#btn-tab-reading-mode');
-  const btnTabSplit          = $('#btn-tab-split');
-  const btnTabOutline        = $('#btn-tab-outline');
+  const workspaceTabsBar = $('#workspace-tabs-bar');
+  const activeTabTitle = $('#active-tab-title');
+  const btnTabClose = $('#btn-tab-close');
+  const btnTabNew = $('#btn-tab-new');
+  const btnTabReadingMode = $('#btn-tab-reading-mode');
+  const btnTabSplit = $('#btn-tab-split');
+  const btnTabOutline = $('#btn-tab-outline');
 
   // ── Obsidian Workspace Status Bar (v2.0) ──
-  const workspaceStatusBar   = $('#workspace-status-bar');
-  const sbWordCount          = $('#sb-word-count');
-  const sbCharCount          = $('#sb-char-count');
-  const sbReadTime           = $('#sb-read-time');
-  const sbDocName            = $('#sb-doc-name');
-  const sbBacklinkCount      = $('#sb-backlink-count');
-  const sbMode               = $('#sb-mode');
-  const sbSaveStatus         = $('#sb-save-status');
-  const sbVersion            = $('#sb-version');
-  const inputWordGoal   = $('#input-word-goal');
-  const inputSprintMin  = $('#input-sprint-minutes');
-  const btnSaveGoal     = $('#btn-save-goal');
-  const btnCancelGoal   = $('#btn-cancel-goal');
-  const btnSprint       = $('#btn-sprint');
+  const workspaceStatusBar = $('#workspace-status-bar');
+  const sbWordCount = $('#sb-word-count');
+  const sbCharCount = $('#sb-char-count');
+  const sbReadTime = $('#sb-read-time');
+  const sbDocName = $('#sb-doc-name');
+  const sbBacklinkCount = $('#sb-backlink-count');
+  const sbMode = $('#sb-mode');
+  const sbSaveStatus = $('#sb-save-status');
+  const sbVersion = $('#sb-version');
+  const inputWordGoal = $('#input-word-goal');
+  const inputSprintMin = $('#input-sprint-minutes');
+  const btnSaveGoal = $('#btn-save-goal');
+  const btnCancelGoal = $('#btn-cancel-goal');
+  const btnSprint = $('#btn-sprint');
   const sprintTimerText = $('#sprint-timer-text');
 
   // Interactive Tutorial Tour
-  const tutorialOverlay    = $('#tutorial-overlay');
-  const tutorialStepBadge  = $('#tutorial-step-badge');
-  const tutorialCategoryTag= $('#tutorial-category-tag');
+  const tutorialOverlay = $('#tutorial-overlay');
+  const tutorialStepBadge = $('#tutorial-step-badge');
+  const tutorialCategoryTag = $('#tutorial-category-tag');
   const btnSkipTutorialTop = $('#btn-skip-tutorial-top');
-  const tutorialIconBox    = $('#tutorial-icon-box');
-  const tutorialTitle      = $('#tutorial-title');
-  const tutorialDesc       = $('#tutorial-desc');
-  const tutorialFeatures   = $('#tutorial-features');
-  const tutorialTip        = $('#tutorial-tip');
-  const tutorialDots       = $('#tutorial-dots');
-  const btnTutorialSkip    = $('#btn-tutorial-skip');
-  const btnTutorialPrev    = $('#btn-tutorial-prev');
-  const btnTutorialNext    = $('#btn-tutorial-next');
+  const tutorialIconBox = $('#tutorial-icon-box');
+  const tutorialTitle = $('#tutorial-title');
+  const tutorialDesc = $('#tutorial-desc');
+  const tutorialFeatures = $('#tutorial-features');
+  const tutorialTip = $('#tutorial-tip');
+  const tutorialDots = $('#tutorial-dots');
+  const btnTutorialSkip = $('#btn-tutorial-skip');
+  const btnTutorialPrev = $('#btn-tutorial-prev');
+  const btnTutorialNext = $('#btn-tutorial-next');
 
-  const btnNewNote      = $('#btn-new-note');
-  const btnPreview      = $('#btn-preview');
-  const btnDelete       = $('#btn-delete');
-  const btnZen          = $('#btn-zen');
-  const btnExportMd     = $('#btn-export-md');
-  const btnExport       = $('#btn-export');
-  const btnImport       = $('#btn-import');
-  const importFile      = $('#import-file');
+  const btnNewNote = $('#btn-new-note');
+  const btnPreview = $('#btn-preview');
+  const btnDelete = $('#btn-delete');
+  const btnZen = $('#btn-zen');
+  const btnExportMd = $('#btn-export-md');
+  const btnExport = $('#btn-export');
+  const btnImport = $('#btn-import');
+  const importFile = $('#import-file');
 
   // .spey Project Package & Settings DOM refs
   const btnExportSpeySidebar = $('#btn-export-spey');
-  const btnOpenSpeySidebar   = $('#btn-open-spey');
+  const btnOpenSpeySidebar = $('#btn-open-spey');
   const btnProjectSettingsSidebar = $('#btn-project-settings');
-  const btnSettingsSidebar        = $('#btn-settings');
+  const btnSettingsSidebar = $('#btn-settings');
 
   const dashboardBtnExportSpey = $('#dashboard-btn-export-spey');
-  const dashboardBtnOpenSpey   = $('#dashboard-btn-open-spey');
-  const menuBtnExportSpey      = $('#menu-btn-export-spey');
-  const menuBtnOpenSpey        = $('#menu-btn-open-spey');
+  const dashboardBtnOpenSpey = $('#dashboard-btn-open-spey');
+  const menuBtnExportSpey = $('#menu-btn-export-spey');
+  const menuBtnOpenSpey = $('#menu-btn-open-spey');
   const menuBtnProjectSettings = $('#menu-btn-project-settings');
 
   // Feedback Enhancements DOM Elements
   // 1. Themes & Focus Mode
-  const baseThemeCards       = $$('.base-theme-card');
-  const settingCustomAccent   = $('#setting-custom-accent');
-  const settingCustomAccentHex= $('#setting-custom-accent-hex');
-  const btnApplyCustomAccent  = $('#btn-apply-custom-accent');
-  const settingFocusAutohide  = $('#setting-focus-autohide');
-  const formatBar             = $('.format-bar');
+  const baseThemeCards = $$('.base-theme-card');
+  const settingCustomAccent = $('#setting-custom-accent');
+  const settingCustomAccentHex = $('#setting-custom-accent-hex');
+  const btnApplyCustomAccent = $('#btn-apply-custom-accent');
+  const settingFocusAutohide = $('#setting-focus-autohide');
+  const formatBar = $('.format-bar');
 
   // 2. New Note Dropdown & Section
-  const newNoteDropdown       = $('#new-note-dropdown');
-  const btnNewNoteDropdown    = $('#btn-new-note-dropdown');
-  const modalNoteSection      = $('#modal-note-section');
+  const newNoteDropdown = $('#new-note-dropdown');
+  const btnNewNoteDropdown = $('#btn-new-note-dropdown');
+  const modalNoteSection = $('#modal-note-section');
 
   // 3. World Map Canvas Shapes, Regions & Enhanced Tools
-  const mapShapeSelect        = $('#map-shape-select');
-  const btnMapDrawRegion      = $('#btn-map-draw-region');
-  const mapZoomLevel          = $('#map-zoom-level');
-  const mapRegionsSvg         = $('#map-regions-svg');
-  const btnMapEditPin         = $('#btn-map-edit-pin');
-  const mapModalPinType       = $('#map-modal-pin-type');
-  const mapModalPinColor      = $('#map-modal-pin-color');
-  const mapRegionModal        = $('#map-region-modal');
-  const mapRegionInputName    = $('#map-region-input-name');
-  const mapRegionInputShape   = $('#map-region-input-shape');
-  const mapRegionInputColor   = $('#map-region-input-color');
-  const mapRegionInputDesc    = $('#map-region-input-desc');
-  const btnMapRegionCancel    = $('#btn-map-region-cancel');
-  const btnMapRegionSave      = $('#btn-map-region-save');
-  const mapRegionDetailModal  = $('#map-region-detail-modal');
-  const mapRegionDetailTitle  = $('#map-region-detail-title');
-  const mapRegionDetailMeta   = $('#map-region-detail-meta');
-  const mapRegionDetailDesc   = $('#map-region-detail-desc');
-  const btnMapRegionDetailClose  = $('#btn-map-region-detail-close');
-  const btnMapRegionDetailEdit   = $('#btn-map-region-detail-edit');
+  const mapShapeSelect = $('#map-shape-select');
+  const btnMapDrawRegion = $('#btn-map-draw-region');
+  const mapZoomLevel = $('#map-zoom-level');
+  const mapRegionsSvg = $('#map-regions-svg');
+  const btnMapEditPin = $('#btn-map-edit-pin');
+  const mapModalPinType = $('#map-modal-pin-type');
+  const mapModalPinColor = $('#map-modal-pin-color');
+  const mapRegionModal = $('#map-region-modal');
+  const mapRegionInputName = $('#map-region-input-name');
+  const mapRegionInputShape = $('#map-region-input-shape');
+  const mapRegionInputColor = $('#map-region-input-color');
+  const mapRegionInputDesc = $('#map-region-input-desc');
+  const btnMapRegionCancel = $('#btn-map-region-cancel');
+  const btnMapRegionSave = $('#btn-map-region-save');
+  const mapRegionDetailModal = $('#map-region-detail-modal');
+  const mapRegionDetailTitle = $('#map-region-detail-title');
+  const mapRegionDetailMeta = $('#map-region-detail-meta');
+  const mapRegionDetailDesc = $('#map-region-detail-desc');
+  const btnMapRegionDetailClose = $('#btn-map-region-detail-close');
+  const btnMapRegionDetailEdit = $('#btn-map-region-detail-edit');
   const btnMapRegionDetailDelete = $('#btn-map-region-detail-delete');
 
   // Map Studio & Custom Sizing Elements
-  const mapPaintCanvas         = $('#map-paint-canvas');
-  const btnMapDimensions       = $('#btn-map-dimensions');
-  const btnMapPaintMode        = $('#btn-map-paint-mode');
-  const btnMapExportPng        = $('#btn-map-export-png');
-  const mapStudioToolbar       = $('#map-studio-toolbar');
-  const mapLayersPanel         = $('#map-layers-panel');
-  const btnStudioLayers        = $('#btn-studio-layers');
-  const btnCloseLayers         = $('#btn-close-layers');
-  const btnAddLayer            = $('#btn-add-layer');
-  const mapLayersList          = $('#map-layers-list');
-  const layerOpacitySlider     = $('#layer-opacity-slider');
-  const layerOpacityVal        = $('#layer-opacity-val');
-  const studioBrushSize        = $('#studio-brush-size');
-  const studioBrushSizeVal     = $('#studio-brush-size-val');
-  const studioBrushOpacity     = $('#studio-brush-opacity');
-  const studioBrushOpacityVal  = $('#studio-brush-opacity-val');
-  const studioTerrainOptions   = $('#studio-terrain-options');
-  const studioTerrainType      = $('#studio-terrain-type');
-  const studioShapeOptions     = $('#studio-shape-options');
-  const studioShapeType        = $('#studio-shape-type');
-  const studioShapeFill        = $('#studio-shape-fill');
-  const studioCustomColor      = $('#studio-custom-color');
-  const btnStudioUndo          = $('#btn-studio-undo');
-  const btnStudioRedo          = $('#btn-studio-redo');
-  const btnStudioClear         = $('#btn-studio-clear');
-  const btnStudioBake          = $('#btn-studio-bake');
-  const btnStudioDone          = $('#btn-studio-done');
-  const studioLayerCount       = $('#studio-layer-count');
-  const mapDimensionsModal     = $('#map-dimensions-modal');
-  const mapDimWidth            = $('#map-dim-width');
-  const mapDimHeight           = $('#map-dim-height');
-  const mapDimShapeFrame       = $('#map-dim-shape-frame');
-  const btnMapDimCancel        = $('#btn-map-dim-cancel');
-  const btnMapDimApply         = $('#btn-map-dim-apply');
+  const mapPaintCanvas = $('#map-paint-canvas');
+  const btnMapDimensions = $('#btn-map-dimensions');
+  const btnMapPaintMode = $('#btn-map-paint-mode');
+  const btnMapExportPng = $('#btn-map-export-png');
+  const mapStudioToolbar = $('#map-studio-toolbar');
+  const mapLayersPanel = $('#map-layers-panel');
+  const btnStudioLayers = $('#btn-studio-layers');
+  const btnCloseLayers = $('#btn-close-layers');
+  const btnAddLayer = $('#btn-add-layer');
+  const mapLayersList = $('#map-layers-list');
+  const layerOpacitySlider = $('#layer-opacity-slider');
+  const layerOpacityVal = $('#layer-opacity-val');
+  const studioBrushSize = $('#studio-brush-size');
+  const studioBrushSizeVal = $('#studio-brush-size-val');
+  const studioBrushOpacity = $('#studio-brush-opacity');
+  const studioBrushOpacityVal = $('#studio-brush-opacity-val');
+  const studioTerrainOptions = $('#studio-terrain-options');
+  const studioTerrainType = $('#studio-terrain-type');
+  const studioShapeOptions = $('#studio-shape-options');
+  const studioShapeType = $('#studio-shape-type');
+  const studioShapeFill = $('#studio-shape-fill');
+  const studioCustomColor = $('#studio-custom-color');
+  const btnStudioUndo = $('#btn-studio-undo');
+  const btnStudioRedo = $('#btn-studio-redo');
+  const btnStudioClear = $('#btn-studio-clear');
+  const btnStudioBake = $('#btn-studio-bake');
+  const btnStudioDone = $('#btn-studio-done');
+  const studioLayerCount = $('#studio-layer-count');
+  const mapDimensionsModal = $('#map-dimensions-modal');
+  const mapDimWidth = $('#map-dim-width');
+  const mapDimHeight = $('#map-dim-height');
+  const mapDimShapeFrame = $('#map-dim-shape-frame');
+  const btnMapDimCancel = $('#btn-map-dim-cancel');
+  const btnMapDimApply = $('#btn-map-dim-apply');
 
   // 4. Galaxy Graph: Manual Nodes & Custom Connections
-  const btnGraphAddNode       = $('#btn-graph-add-node');
-  const btnGraphConnect       = $('#btn-graph-connect');
-  const graphEntityModal      = $('#graph-entity-modal');
+  const btnGraphAddNode = $('#btn-graph-add-node');
+  const btnGraphConnect = $('#btn-graph-connect');
+  const graphEntityModal = $('#graph-entity-modal');
   const graphInputEntityTitle = $('#graph-input-entity-title');
-  const graphInputEntityType  = $('#graph-input-entity-type');
-  const graphInputEntityCat   = $('#graph-input-entity-cat');
+  const graphInputEntityType = $('#graph-input-entity-type');
+  const graphInputEntityCat = $('#graph-input-entity-cat');
   const graphInputEntityColor = $('#graph-input-entity-color');
-  const graphInputEntityDesc  = $('#graph-input-entity-desc');
-  const btnGraphEntityCancel  = $('#btn-graph-entity-cancel');
-  const btnGraphEntitySave    = $('#btn-graph-entity-save');
-  const graphLinkModal        = $('#graph-link-modal');
-  const graphLinkSource       = $('#graph-link-source');
-  const graphLinkTarget       = $('#graph-link-target');
-  const graphLinkLabel        = $('#graph-link-label');
-  const graphLinkColor        = $('#graph-link-color');
-  const btnGraphLinkCancel    = $('#btn-graph-link-cancel');
-  const btnGraphLinkSave      = $('#btn-graph-link-save');
-  const graphNodeDetailModal  = $('#graph-node-detail-modal');
-  const graphDetailBadge      = $('#graph-detail-badge');
-  const graphDetailTitle      = $('#graph-detail-title');
-  const graphDetailMeta       = $('#graph-detail-meta');
-  const graphDetailDesc       = $('#graph-detail-desc');
-  const graphDetailLinksList  = $('#graph-detail-links-list');
-  const btnGraphDetailClose   = $('#btn-graph-detail-close');
-  const btnGraphDetailEdit    = $('#btn-graph-detail-edit');
-  const btnGraphDetailDelete  = $('#btn-graph-detail-delete');
+  const graphInputEntityDesc = $('#graph-input-entity-desc');
+  const btnGraphEntityCancel = $('#btn-graph-entity-cancel');
+  const btnGraphEntitySave = $('#btn-graph-entity-save');
+  const graphLinkModal = $('#graph-link-modal');
+  const graphLinkSource = $('#graph-link-source');
+  const graphLinkTarget = $('#graph-link-target');
+  const graphLinkLabel = $('#graph-link-label');
+  const graphLinkColor = $('#graph-link-color');
+  const btnGraphLinkCancel = $('#btn-graph-link-cancel');
+  const btnGraphLinkSave = $('#btn-graph-link-save');
+  const graphNodeDetailModal = $('#graph-node-detail-modal');
+  const graphDetailBadge = $('#graph-detail-badge');
+  const graphDetailTitle = $('#graph-detail-title');
+  const graphDetailMeta = $('#graph-detail-meta');
+  const graphDetailDesc = $('#graph-detail-desc');
+  const graphDetailLinksList = $('#graph-detail-links-list');
+  const btnGraphDetailClose = $('#btn-graph-detail-close');
+  const btnGraphDetailEdit = $('#btn-graph-detail-edit');
+  const btnGraphDetailDelete = $('#btn-graph-detail-delete');
   const btnGraphDetailConnect = $('#btn-graph-detail-connect');
-  const btnGraphDetailOpenNote= $('#btn-graph-detail-open-note');
+  const btnGraphDetailOpenNote = $('#btn-graph-detail-open-note');
 
   // 5. Character Codex: Image Upload & Standalone Dossier
-  const codexImageDropzone    = $('#codex-image-dropzone');
-  const codexImagePreview     = $('#codex-image-preview');
+  const codexImageDropzone = $('#codex-image-dropzone');
+  const codexImagePreview = $('#codex-image-preview');
   const codexImagePlaceholder = $('#codex-image-placeholder');
-  const codexInputImage       = $('#codex-input-image');
-  const btnCodexRemoveImage   = $('#btn-codex-remove-image');
-  const codexDetailModal      = $('#codex-detail-modal');
-  const codexDetailArchetype  = $('#codex-detail-archetype');
-  const codexDetailFaction    = $('#codex-detail-faction');
-  const codexDetailClose      = $('#btn-codex-detail-close');
-  const codexDetailAvatarImg  = $('#codex-detail-avatar-img');
+  const codexInputImage = $('#codex-input-image');
+  const btnCodexRemoveImage = $('#btn-codex-remove-image');
+  const codexDetailModal = $('#codex-detail-modal');
+  const codexDetailArchetype = $('#codex-detail-archetype');
+  const codexDetailFaction = $('#codex-detail-faction');
+  const codexDetailClose = $('#btn-codex-detail-close');
+  const codexDetailAvatarImg = $('#codex-detail-avatar-img');
   const codexDetailAvatarFallback = $('#codex-detail-avatar-fallback');
-  const codexDetailName       = $('#codex-detail-name');
-  const codexDetailRole       = $('#codex-detail-role');
-  const codexDetailBio        = $('#codex-detail-bio');
-  const codexDetailRelsList   = $('#codex-detail-rels-list');
-  const btnCodexDetailDelete  = $('#btn-codex-detail-delete');
-  const btnCodexDetailEdit    = $('#btn-codex-detail-edit');
-  const btnCodexDetailOpenNote= $('#btn-codex-detail-open-note');
+  const codexDetailName = $('#codex-detail-name');
+  const codexDetailRole = $('#codex-detail-role');
+  const codexDetailBio = $('#codex-detail-bio');
+  const codexDetailRelsList = $('#codex-detail-rels-list');
+  const btnCodexDetailDelete = $('#btn-codex-detail-delete');
+  const btnCodexDetailEdit = $('#btn-codex-detail-edit');
+  const btnCodexDetailOpenNote = $('#btn-codex-detail-open-note');
 
   // 6. Chronology Timeline: Standalone Event Detail Modal
   const timelineEventDetailModal = $('#timeline-event-detail-modal');
-  const timelineDetailBadge   = $('#timeline-detail-badge');
-  const timelineDetailYear    = $('#timeline-detail-year');
-  const timelineDetailClose   = $('#btn-timeline-detail-close');
-  const timelineDetailTitle   = $('#timeline-detail-title');
-  const timelineDetailEra     = $('#timeline-detail-era');
-  const timelineDetailDesc    = $('#timeline-detail-desc');
+  const timelineDetailBadge = $('#timeline-detail-badge');
+  const timelineDetailYear = $('#timeline-detail-year');
+  const timelineDetailClose = $('#btn-timeline-detail-close');
+  const timelineDetailTitle = $('#timeline-detail-title');
+  const timelineDetailEra = $('#timeline-detail-era');
+  const timelineDetailDesc = $('#timeline-detail-desc');
   const btnTimelineDetailDelete = $('#btn-timeline-detail-delete');
   const btnTimelineDetailEdit = $('#btn-timeline-detail-edit');
   const btnTimelineDetailOpenNote = $('#btn-timeline-detail-open-note');
@@ -298,92 +298,92 @@
     }
   });
 
-  const menuBtnSettings        = $('#menu-btn-settings');
+  const menuBtnSettings = $('#menu-btn-settings');
 
-  const speyImportModal        = $('#spey-import-modal');
-  const btnImportModalClose    = $('#btn-import-modal-close');
-  const speyImportProjName     = $('#spey-import-proj-name');
-  const speyImportFormatTag    = $('#spey-import-format-tag');
-  const speyStatChapters       = $('#spey-stat-chapters');
-  const speyStatWords          = $('#spey-stat-words');
-  const speyStatLore           = $('#spey-stat-lore');
-  const speyStatPins           = $('#spey-stat-pins');
-  const speyBreakdownDetails   = $('#spey-breakdown-details');
-  const btnImportCancel        = $('#btn-import-cancel');
-  const btnImportMerge         = $('#btn-import-merge');
-  const btnImportReplace       = $('#btn-import-replace');
+  const speyImportModal = $('#spey-import-modal');
+  const btnImportModalClose = $('#btn-import-modal-close');
+  const speyImportProjName = $('#spey-import-proj-name');
+  const speyImportFormatTag = $('#spey-import-format-tag');
+  const speyStatChapters = $('#spey-stat-chapters');
+  const speyStatWords = $('#spey-stat-words');
+  const speyStatLore = $('#spey-stat-lore');
+  const speyStatPins = $('#spey-stat-pins');
+  const speyBreakdownDetails = $('#spey-breakdown-details');
+  const btnImportCancel = $('#btn-import-cancel');
+  const btnImportMerge = $('#btn-import-merge');
+  const btnImportReplace = $('#btn-import-replace');
 
-  const projectSettingsModal   = $('#project-settings-modal') || $('#settings-modal');
-  const settingsModal          = $('#settings-modal') || $('#project-settings-modal');
+  const projectSettingsModal = $('#project-settings-modal') || $('#settings-modal');
+  const settingsModal = $('#settings-modal') || $('#project-settings-modal');
   const btnCloseProjectSettings = $('#btn-close-project-settings') || $('#btn-close-settings');
-  const btnCloseSettings       = $('#btn-close-settings') || $('#btn-close-project-settings');
+  const btnCloseSettings = $('#btn-close-settings') || $('#btn-close-project-settings');
   const btnCancelProjectSettings = $('#btn-cancel-project-settings') || $('#btn-cancel-settings');
-  const btnCancelSettings      = $('#btn-cancel-settings') || $('#btn-cancel-project-settings');
-  const settingProjectTitle    = $('#setting-project-title');
-  const settingProjectAuthor   = $('#setting-project-author');
-  const settingsStatsGrid      = $('#settings-stats-grid');
-  const settingsBtnExportSpey  = $('#settings-btn-export-spey');
-  const settingsBtnOpenSpey    = $('#settings-btn-open-spey');
-  const settingsBtnExportJson  = $('#settings-btn-export-json');
-  const settingsBtnImportJson  = $('#settings-btn-import-json');
+  const btnCancelSettings = $('#btn-cancel-settings') || $('#btn-cancel-project-settings');
+  const settingProjectTitle = $('#setting-project-title');
+  const settingProjectAuthor = $('#setting-project-author');
+  const settingsStatsGrid = $('#settings-stats-grid');
+  const settingsBtnExportSpey = $('#settings-btn-export-spey');
+  const settingsBtnOpenSpey = $('#settings-btn-open-spey');
+  const settingsBtnExportJson = $('#settings-btn-export-json');
+  const settingsBtnImportJson = $('#settings-btn-import-json');
   const settingsImportJsonFile = $('#settings-import-json-file');
   const settingsBtnBackupVault = $('#settings-btn-backup-vault');
   const settingsBtnRestoreVault = $('#settings-btn-restore-vault');
-  const settingsBtnClearVault  = $('#settings-btn-clear-vault');
+  const settingsBtnClearVault = $('#settings-btn-clear-vault');
   const btnSaveProjectSettings = $('#btn-save-project-settings');
 
-  const settingFontFamily      = $('#setting-font-family');
-  const settingFontSize        = $('#setting-font-size');
-  const settingLineHeight      = $('#setting-line-height');
-  const settingTabSize         = $('#setting-tab-size');
+  const settingFontFamily = $('#setting-font-family');
+  const settingFontSize = $('#setting-font-size');
+  const settingLineHeight = $('#setting-line-height');
+  const settingTabSize = $('#setting-tab-size');
   const settingTypewriterToggle = $('#setting-typewriter-toggle');
-  const settingAutoEmdash      = $('#setting-auto-emdash');
-  const settingSmartQuotes     = $('#setting-smart-quotes');
+  const settingAutoEmdash = $('#setting-auto-emdash');
+  const settingSmartQuotes = $('#setting-smart-quotes');
   const settingIntroStarToggle = $('#setting-intro-star-toggle');
   const settingBtnPreviewIntro = $('#setting-btn-preview-intro');
 
-  const settingsBtnTourGeneral  = $('#settings-btn-tour-general');
-  const settingsBtnTourEditor   = $('#settings-btn-tour-editor');
-  const settingsBtnTourWiki     = $('#settings-btn-tour-wiki');
-  const settingsBtnTourGraph    = $('#settings-btn-tour-graph');
-  const settingsBtnTourMap      = $('#settings-btn-tour-map');
+  const settingsBtnTourGeneral = $('#settings-btn-tour-general');
+  const settingsBtnTourEditor = $('#settings-btn-tour-editor');
+  const settingsBtnTourWiki = $('#settings-btn-tour-wiki');
+  const settingsBtnTourGraph = $('#settings-btn-tour-graph');
+  const settingsBtnTourMap = $('#settings-btn-tour-map');
   const settingsBtnTourTimeline = $('#settings-btn-tour-timeline');
-  const settingsBtnTourCodex    = $('#settings-btn-tour-codex');
-  const settingsBtnTourSpey     = $('#settings-btn-tour-spey');
-  const settingsBtnLoadSample   = $('#settings-btn-load-sample');
-  const btnSettingsTutorial     = $('#btn-settings-tutorial');
-  const btnGraphTutorial        = $('#btn-graph-tutorial');
-  const btnEditorTutorial       = $('#btn-editor-tutorial');
-  const btnTimelineEmptySample  = $('#btn-timeline-empty-sample');
-  const btnCodexEmptySample     = $('#btn-codex-empty-sample');
-  const dashboardBtnTutorial    = $('#dashboard-btn-tutorial');
-  const menuEmptyBtnSample      = $('#menu-empty-btn-sample');
-  const menuEmptyBtnGuide       = $('#menu-empty-btn-guide');
-  const mapBtnEmptyDrop         = $('#map-btn-empty-drop');
-  const mapBtnEmptySample       = $('#map-btn-empty-sample');
+  const settingsBtnTourCodex = $('#settings-btn-tour-codex');
+  const settingsBtnTourSpey = $('#settings-btn-tour-spey');
+  const settingsBtnLoadSample = $('#settings-btn-load-sample');
+  const btnSettingsTutorial = $('#btn-settings-tutorial');
+  const btnGraphTutorial = $('#btn-graph-tutorial');
+  const btnEditorTutorial = $('#btn-editor-tutorial');
+  const btnTimelineEmptySample = $('#btn-timeline-empty-sample');
+  const btnCodexEmptySample = $('#btn-codex-empty-sample');
+  const dashboardBtnTutorial = $('#dashboard-btn-tutorial');
+  const menuEmptyBtnSample = $('#menu-empty-btn-sample');
+  const menuEmptyBtnGuide = $('#menu-empty-btn-guide');
+  const mapBtnEmptyDrop = $('#map-btn-empty-drop');
+  const mapBtnEmptySample = $('#map-btn-empty-sample');
 
-  const vaultResetConfirmModal  = $('#vault-reset-confirm-modal');
-  const btnCloseResetConfirm    = $('#btn-close-reset-confirm');
-  const btnCancelResetVault     = $('#btn-cancel-reset-vault');
-  const btnConfirmResetVault    = $('#btn-confirm-reset-vault');
+  const vaultResetConfirmModal = $('#vault-reset-confirm-modal');
+  const btnCloseResetConfirm = $('#btn-close-reset-confirm');
+  const btnCancelResetVault = $('#btn-cancel-reset-vault');
+  const btnConfirmResetVault = $('#btn-confirm-reset-vault');
 
-  const modalSampleVaultConfirm   = $('#modal-sample-vault-confirm') || $('#sample-vault-confirm-modal');
-  const btnSampleConfirmClose     = $('#btn-sample-confirm-close');
-  const btnSampleConfirmCancel    = $('#btn-sample-confirm-cancel');
-  const btnSampleConfirmReplace   = $('#btn-sample-confirm-replace') || $('#btn-sample-confirm-backup-replace');
-  const btnSampleConfirmMerge     = $('#btn-sample-confirm-merge');
-  const sampleStatNotes           = $('#sample-stat-notes');
-  const sampleStatChapters        = $('#sample-stat-chapters');
-  const sampleStatLore            = $('#sample-stat-lore');
-  const sampleStatWords           = $('#sample-stat-words');
-  const sampleConfirmDetails      = $('#sample-confirm-details');
+  const modalSampleVaultConfirm = $('#modal-sample-vault-confirm') || $('#sample-vault-confirm-modal');
+  const btnSampleConfirmClose = $('#btn-sample-confirm-close');
+  const btnSampleConfirmCancel = $('#btn-sample-confirm-cancel');
+  const btnSampleConfirmReplace = $('#btn-sample-confirm-replace') || $('#btn-sample-confirm-backup-replace');
+  const btnSampleConfirmMerge = $('#btn-sample-confirm-merge');
+  const sampleStatNotes = $('#sample-stat-notes');
+  const sampleStatChapters = $('#sample-stat-chapters');
+  const sampleStatLore = $('#sample-stat-lore');
+  const sampleStatWords = $('#sample-stat-words');
+  const sampleConfirmDetails = $('#sample-confirm-details');
 
-  const sampleVaultRestoreBanner  = $('#sample-vault-restore-banner');
-  const btnSampleUndoRestore      = $('#btn-sample-undo-restore');
-  const btnSampleDismissBanner    = $('#btn-sample-dismiss-banner');
-  const settingsBtnRestoreBackup  = $('#settings-btn-restore-backup');
+  const sampleVaultRestoreBanner = $('#sample-vault-restore-banner');
+  const btnSampleUndoRestore = $('#btn-sample-undo-restore');
+  const btnSampleDismissBanner = $('#btn-sample-dismiss-banner');
+  const settingsBtnRestoreBackup = $('#settings-btn-restore-backup');
 
-  const speyDropzone           = $('#spey-dropzone');
+  const speyDropzone = $('#spey-dropzone');
 
   if (speyImportModal && speyImportModal.classList) speyImportModal.classList.add('hidden');
   if (projectSettingsModal && projectSettingsModal.classList) projectSettingsModal.classList.add('hidden');
@@ -393,54 +393,54 @@
   if (speyDropzone && speyDropzone.classList) speyDropzone.classList.add('hidden');
 
   // Find & Replace
-  const btnFindToggle   = $('#btn-find-toggle');
-  const findReplaceBar  = $('#find-replace-bar');
-  const findInput       = $('#find-input');
-  const replaceInput    = $('#replace-input');
-  const findCounter     = $('#find-counter');
-  const btnFindPrev     = $('#btn-find-prev');
-  const btnFindNext     = $('#btn-find-next');
-  const btnFindCase     = $('#btn-find-case');
-  const btnReplaceOne   = $('#btn-replace-one');
-  const btnReplaceAll   = $('#btn-replace-all');
-  const btnFindClose    = $('#btn-find-close');
+  const btnFindToggle = $('#btn-find-toggle');
+  const findReplaceBar = $('#find-replace-bar');
+  const findInput = $('#find-input');
+  const replaceInput = $('#replace-input');
+  const findCounter = $('#find-counter');
+  const btnFindPrev = $('#btn-find-prev');
+  const btnFindNext = $('#btn-find-next');
+  const btnFindCase = $('#btn-find-case');
+  const btnReplaceOne = $('#btn-replace-one');
+  const btnReplaceAll = $('#btn-replace-all');
+  const btnFindClose = $('#btn-find-close');
 
   // Author Typography & Writing Mode
   const editorFontSelect = $('#editor-font-select');
-  const btnFontDec       = $('#btn-font-dec');
-  const btnFontInc       = $('#btn-font-inc');
-  const fontSizeVal      = $('#font-size-val');
-  const btnLineSpacing   = $('#btn-line-spacing');
-  const lineSpacingVal   = $('#line-spacing-val');
-  const btnTabSize       = $('#btn-tab-size');
-  const tabSizeVal       = $('#tab-size-val');
-  const btnTypewriter    = $('#btn-typewriter');
+  const btnFontDec = $('#btn-font-dec');
+  const btnFontInc = $('#btn-font-inc');
+  const fontSizeVal = $('#font-size-val');
+  const btnLineSpacing = $('#btn-line-spacing');
+  const lineSpacingVal = $('#line-spacing-val');
+  const btnTabSize = $('#btn-tab-size');
+  const tabSizeVal = $('#tab-size-val');
+  const btnTypewriter = $('#btn-typewriter');
 
   // Manuscript Metrics Modal
-  const btnMetrics         = $('#btn-metrics');
-  const metricsModal       = $('#metrics-modal');
-  const btnCloseMetrics    = $('#btn-close-metrics');
-  const btnMetricsDone     = $('#btn-metrics-done');
-  const statWords          = $('#stat-words');
-  const statCharsSpaces    = $('#stat-chars-spaces');
-  const statCharsNoSpaces  = $('#stat-chars-nospaces');
-  const statParagraphs     = $('#stat-paragraphs');
-  const statSentences      = $('#stat-sentences');
-  const statAvgWordsSent   = $('#stat-avg-words-sentence');
-  const statReadTime       = $('#stat-read-time');
-  const statSpeakTime      = $('#stat-speak-time');
-  const statReadingLevel   = $('#stat-reading-level');
-  const statReadingBadge   = $('#stat-reading-badge');
+  const btnMetrics = $('#btn-metrics');
+  const metricsModal = $('#metrics-modal');
+  const btnCloseMetrics = $('#btn-close-metrics');
+  const btnMetricsDone = $('#btn-metrics-done');
+  const statWords = $('#stat-words');
+  const statCharsSpaces = $('#stat-chars-spaces');
+  const statCharsNoSpaces = $('#stat-chars-nospaces');
+  const statParagraphs = $('#stat-paragraphs');
+  const statSentences = $('#stat-sentences');
+  const statAvgWordsSent = $('#stat-avg-words-sentence');
+  const statReadTime = $('#stat-read-time');
+  const statSpeakTime = $('#stat-speak-time');
+  const statReadingLevel = $('#stat-reading-level');
+  const statReadingBadge = $('#stat-reading-badge');
   const selectionStatsWrap = $('#selection-stats-wrap');
-  const statSelWords       = $('#stat-sel-words');
-  const statSelChars       = $('#stat-sel-chars');
+  const statSelWords = $('#stat-sel-words');
+  const statSelChars = $('#stat-sel-chars');
 
   // Backlinks & Linked Mentions
-  const backlinksPanel   = $('#backlinks-panel');
-  const linkedMentions   = $('#linked-mentions') || backlinksPanel;
-  const backlinksHeader  = $('#backlinks-toggle-header');
-  const backlinksCount   = $('#backlinks-count');
-  const backlinksList    = $('#backlinks-list');
+  const backlinksPanel = $('#backlinks-panel');
+  const linkedMentions = $('#linked-mentions') || backlinksPanel;
+  const backlinksHeader = $('#backlinks-toggle-header');
+  const backlinksCount = $('#backlinks-count');
+  const backlinksList = $('#backlinks-list');
   const btnToggleBacklinks = $('#btn-toggle-backlinks');
 
   function toggleLinkedMentions() {
@@ -469,212 +469,212 @@
   }
 
   // Modals
-  const modalOverlay     = $('#modal-overlay');
-  const modalTitle       = $('#modal-note-title');
-  const modalCategory    = $('#modal-note-category');
-  const modalCreate      = $('#modal-create');
-  const modalCancel      = $('#modal-cancel');
+  const modalOverlay = $('#modal-overlay');
+  const modalTitle = $('#modal-note-title');
+  const modalCategory = $('#modal-note-category');
+  const modalCreate = $('#modal-create');
+  const modalCancel = $('#modal-cancel');
 
-  const deleteOverlay    = $('#delete-overlay');
-  const deleteConfirm    = $('#delete-confirm');
-  const deleteCancel     = $('#delete-cancel');
+  const deleteOverlay = $('#delete-overlay');
+  const deleteConfirm = $('#delete-confirm');
+  const deleteCancel = $('#delete-cancel');
 
   // Wiki Create Modal
-  const wikicreateModal   = $('#wikicreate-modal');
-  const wikicreateTarget  = $('#wikicreate-target');
-  const wikicreateCategory= $('#wikicreate-category');
+  const wikicreateModal = $('#wikicreate-modal');
+  const wikicreateTarget = $('#wikicreate-target');
+  const wikicreateCategory = $('#wikicreate-category');
   const wikicreateConfirm = $('#wikicreate-confirm');
-  const wikicreateCancel  = $('#wikicreate-cancel');
+  const wikicreateCancel = $('#wikicreate-cancel');
 
   // Quick Switcher
   const btnQuickSwitcher = $('#btn-quick-switcher');
-  const switcherModal    = $('#switcher-modal');
-  const switcherInput    = $('#switcher-input');
-  const switcherResults  = $('#switcher-results');
+  const switcherModal = $('#switcher-modal');
+  const switcherInput = $('#switcher-input');
+  const switcherResults = $('#switcher-results');
 
   // Cosmos Galaxy View
-  const btnGraphView        = $('#btn-graph-view');
-  const graphModal          = $('#graph-modal');
-  const btnCloseGraph       = $('#btn-close-graph');
-  const graphCanvas         = $('#graph-canvas');
-  const graphNodeCount      = $('#graph-node-count');
-  const graphEdgeCount      = $('#graph-edge-count');
-  const galaxyEmptyPrompt   = $('#galaxy-empty-prompt');
-  const galaxyBtnCreateFirst= $('#galaxy-btn-create-first');
-  const galaxyBtnLoadDemo   = $('#galaxy-btn-load-demo');
-  const graphLocationHud    = $('#graph-location-hud');
-  const hudCategoryDot      = $('#hud-category-dot');
-  const hudCategoryName     = $('#hud-category-name');
-  const hudSubBranch        = $('#hud-sub-branch');
-  const hudNodeTitle        = $('#hud-node-title');
+  const btnGraphView = $('#btn-graph-view');
+  const graphModal = $('#graph-modal');
+  const btnCloseGraph = $('#btn-close-graph');
+  const graphCanvas = $('#graph-canvas');
+  const graphNodeCount = $('#graph-node-count');
+  const graphEdgeCount = $('#graph-edge-count');
+  const galaxyEmptyPrompt = $('#galaxy-empty-prompt');
+  const galaxyBtnCreateFirst = $('#galaxy-btn-create-first');
+  const galaxyBtnLoadDemo = $('#galaxy-btn-load-demo');
+  const graphLocationHud = $('#graph-location-hud');
+  const hudCategoryDot = $('#hud-category-dot');
+  const hudCategoryName = $('#hud-category-name');
+  const hudSubBranch = $('#hud-sub-branch');
+  const hudNodeTitle = $('#hud-node-title');
   const hudConnectionsCount = $('#hud-connections-count');
-  const hudActionHint       = $('#hud-action-hint');
+  const hudActionHint = $('#hud-action-hint');
 
   // World Map & Pin Codex
-  const btnMapView          = $('#btn-map-view');
-  const menuBtnMap          = $('#menu-btn-map');
-  const dashboardBtnMap     = $('#dashboard-btn-map');
-  const btnToolbarMap       = $('#btn-toolbar-map');
-  const mapModal            = $('#map-modal');
-  const btnCloseMap         = $('#btn-close-map');
-  const mapViewport         = $('#map-viewport');
-  const mapStage            = $('#map-stage');
-  const mapCanvas           = $('#map-canvas');
-  let mapCustomImg          = $('#map-custom-img');
-  const mapPinsContainer    = $('#map-pins-container');
-  const mapPinCount         = $('#map-pin-count');
-  const mapCoordsIndicator  = $('#map-coords-indicator');
-  const mapPinSearch        = $('#map-pin-search');
-  const btnMapDropPin       = $('#btn-map-drop-pin');
-  const btnMapCancelDrop    = $('#btn-map-cancel-drop');
-  const mapPlacementHint    = $('#map-placement-hint');
-  const mapFileInput        = $('#map-file-input');
-  const btnMapResetImg      = $('#btn-map-reset-img');
-  const btnMapZoomIn        = $('#btn-map-zoom-in');
-  const btnMapZoomOut       = $('#btn-map-zoom-out');
-  const btnMapZoomReset     = $('#btn-map-zoom-reset');
-  const mapPinPreview       = $('#map-pin-preview');
-  const mapPreviewBadge     = $('#map-preview-badge');
-  const mapPreviewCoords    = $('#map-preview-coords');
-  const btnMapPreviewClose  = $('#btn-map-preview-close');
-  const mapPreviewTitle     = $('#map-preview-title');
-  const mapPreviewDesc      = $('#map-preview-desc');
-  const btnMapOpenNote      = $('#btn-map-open-note');
-  const btnMapDeletePin     = $('#btn-map-delete-pin');
-  const mapPinModal         = $('#map-pin-modal');
-  const mapModalNoteSelect  = $('#map-modal-note-select');
-  const mapModalPinTitle    = $('#map-modal-pin-title');
+  const btnMapView = $('#btn-map-view');
+  const menuBtnMap = $('#menu-btn-map');
+  const dashboardBtnMap = $('#dashboard-btn-map');
+  const btnToolbarMap = $('#btn-toolbar-map');
+  const mapModal = $('#map-modal');
+  const btnCloseMap = $('#btn-close-map');
+  const mapViewport = $('#map-viewport');
+  const mapStage = $('#map-stage');
+  const mapCanvas = $('#map-canvas');
+  let mapCustomImg = $('#map-custom-img');
+  const mapPinsContainer = $('#map-pins-container');
+  const mapPinCount = $('#map-pin-count');
+  const mapCoordsIndicator = $('#map-coords-indicator');
+  const mapPinSearch = $('#map-pin-search');
+  const btnMapDropPin = $('#btn-map-drop-pin');
+  const btnMapCancelDrop = $('#btn-map-cancel-drop');
+  const mapPlacementHint = $('#map-placement-hint');
+  const mapFileInput = $('#map-file-input');
+  const btnMapResetImg = $('#btn-map-reset-img');
+  const btnMapZoomIn = $('#btn-map-zoom-in');
+  const btnMapZoomOut = $('#btn-map-zoom-out');
+  const btnMapZoomReset = $('#btn-map-zoom-reset');
+  const mapPinPreview = $('#map-pin-preview');
+  const mapPreviewBadge = $('#map-preview-badge');
+  const mapPreviewCoords = $('#map-preview-coords');
+  const btnMapPreviewClose = $('#btn-map-preview-close');
+  const mapPreviewTitle = $('#map-preview-title');
+  const mapPreviewDesc = $('#map-preview-desc');
+  const btnMapOpenNote = $('#btn-map-open-note');
+  const btnMapDeletePin = $('#btn-map-delete-pin');
+  const mapPinModal = $('#map-pin-modal');
+  const mapModalNoteSelect = $('#map-modal-note-select');
+  const mapModalPinTitle = $('#map-modal-pin-title');
   const mapModalPinCategory = $('#map-modal-pin-category');
-  const mapModalPinDesc     = $('#map-modal-pin-desc');
-  const btnMapPinCancel     = $('#btn-map-pin-cancel');
-  const btnMapPinSave       = $('#btn-map-pin-save');
-  const btnMapTutorial      = $('#btn-map-tutorial');
-  const mapTutorialModal    = $('#map-tutorial-modal');
+  const mapModalPinDesc = $('#map-modal-pin-desc');
+  const btnMapPinCancel = $('#btn-map-pin-cancel');
+  const btnMapPinSave = $('#btn-map-pin-save');
+  const btnMapTutorial = $('#btn-map-tutorial');
+  const mapTutorialModal = $('#map-tutorial-modal');
   const btnCloseMapTutorial = $('#btn-close-map-tutorial');
   const btnDismissMapTutorial = $('#btn-dismiss-map-tutorial');
 
   // Universe Atlas & Celestial Cartography
-  const mapAtlasSelect            = $('#map-atlas-select');
-  const mapAtlasBreadcrumbs       = $('#map-atlas-breadcrumbs');
-  const mapTierBadge              = $('#map-tier-badge');
-  const btnAtlasNewMap            = $('#btn-atlas-new-map');
-  const btnAtlasDeleteMap         = $('#btn-atlas-delete-map');
-  const btnMapOrbitalRings        = $('#btn-map-orbital-rings');
-  const mapCelestialThemeSelect   = $('#map-celestial-theme-select');
-  const btnMapDrillDown           = $('#btn-map-drill-down');
-  const mapModalPinSubmap         = $('#map-modal-pin-submap');
-  const atlasMapModal             = $('#atlas-map-modal');
-  const atlasModalName            = $('#atlas-modal-name');
-  const atlasModalTier            = $('#atlas-modal-tier');
-  const atlasModalParent          = $('#atlas-modal-parent');
-  const atlasModalTheme           = $('#atlas-modal-theme');
-  const atlasModalShape           = $('#atlas-modal-shape');
-  const atlasModalDesc            = $('#atlas-modal-desc');
-  const btnAtlasModalCancel       = $('#btn-atlas-modal-cancel');
-  const btnAtlasModalSave         = $('#btn-atlas-modal-save');
-  const ambientThemeContainer     = $('#ambient-theme-container');
-  const ambientThemeCanvas        = $('#ambient-theme-canvas');
+  const mapAtlasSelect = $('#map-atlas-select');
+  const mapAtlasBreadcrumbs = $('#map-atlas-breadcrumbs');
+  const mapTierBadge = $('#map-tier-badge');
+  const btnAtlasNewMap = $('#btn-atlas-new-map');
+  const btnAtlasDeleteMap = $('#btn-atlas-delete-map');
+  const btnMapOrbitalRings = $('#btn-map-orbital-rings');
+  const mapCelestialThemeSelect = $('#map-celestial-theme-select');
+  const btnMapDrillDown = $('#btn-map-drill-down');
+  const mapModalPinSubmap = $('#map-modal-pin-submap');
+  const atlasMapModal = $('#atlas-map-modal');
+  const atlasModalName = $('#atlas-modal-name');
+  const atlasModalTier = $('#atlas-modal-tier');
+  const atlasModalParent = $('#atlas-modal-parent');
+  const atlasModalTheme = $('#atlas-modal-theme');
+  const atlasModalShape = $('#atlas-modal-shape');
+  const atlasModalDesc = $('#atlas-modal-desc');
+  const btnAtlasModalCancel = $('#btn-atlas-modal-cancel');
+  const btnAtlasModalSave = $('#btn-atlas-modal-save');
+  const ambientThemeContainer = $('#ambient-theme-container');
+  const ambientThemeCanvas = $('#ambient-theme-canvas');
 
   // Chronology & Event Timeline
-  const btnTimelineView       = $('#btn-timeline-view');
-  const menuBtnTimeline       = $('#menu-btn-timeline');
-  const dashboardBtnTimeline  = $('#dashboard-btn-timeline');
-  const btnToolbarTimeline    = $('#btn-toolbar-timeline');
-  const timelineModal         = $('#timeline-modal');
-  const btnCloseTimeline      = $('#btn-close-timeline');
-  const timelineEventCount    = $('#timeline-event-count');
-  const timelineSearch        = $('#timeline-search');
-  const btnTimelineModeRail   = $('#btn-timeline-mode-rail');
+  const btnTimelineView = $('#btn-timeline-view');
+  const menuBtnTimeline = $('#menu-btn-timeline');
+  const dashboardBtnTimeline = $('#dashboard-btn-timeline');
+  const btnToolbarTimeline = $('#btn-toolbar-timeline');
+  const timelineModal = $('#timeline-modal');
+  const btnCloseTimeline = $('#btn-close-timeline');
+  const timelineEventCount = $('#timeline-event-count');
+  const timelineSearch = $('#timeline-search');
+  const btnTimelineModeRail = $('#btn-timeline-mode-rail');
   const btnTimelineModeStream = $('#btn-timeline-mode-stream');
-  const timelineRailView      = $('#timeline-rail-view');
-  const timelineStreamView    = $('#timeline-stream-view');
-  const timelineRailEras      = $('#timeline-rail-eras');
-  const timelineRailTrack     = $('#timeline-rail-track');
+  const timelineRailView = $('#timeline-rail-view');
+  const timelineStreamView = $('#timeline-stream-view');
+  const timelineRailEras = $('#timeline-rail-eras');
+  const timelineRailTrack = $('#timeline-rail-track');
   const timelineStreamContainer = $('#timeline-stream-container');
-  const timelineEmptyPrompt   = $('#timeline-empty-prompt');
-  const btnTimelineAdd        = $('#btn-timeline-add');
-  const btnTimelineEmptyAdd   = $('#btn-timeline-empty-add');
-  const timelineEventModal    = $('#timeline-event-modal');
-  const timelineInputYear     = $('#timeline-input-year');
-  const timelineInputEra      = $('#timeline-input-era');
-  const timelineInputTitle    = $('#timeline-input-title');
-  const timelineInputNote     = $('#timeline-input-note');
+  const timelineEmptyPrompt = $('#timeline-empty-prompt');
+  const btnTimelineAdd = $('#btn-timeline-add');
+  const btnTimelineEmptyAdd = $('#btn-timeline-empty-add');
+  const timelineEventModal = $('#timeline-event-modal');
+  const timelineInputYear = $('#timeline-input-year');
+  const timelineInputEra = $('#timeline-input-era');
+  const timelineInputTitle = $('#timeline-input-title');
+  const timelineInputNote = $('#timeline-input-note');
   const timelineInputCategory = $('#timeline-input-category');
-  const timelineInputDesc     = $('#timeline-input-desc');
-  const btnTimelineEventCancel= $('#btn-timeline-event-cancel');
-  const btnTimelineEventSave  = $('#btn-timeline-event-save');
-  const btnTimelineTutorial   = $('#btn-timeline-tutorial');
+  const timelineInputDesc = $('#timeline-input-desc');
+  const btnTimelineEventCancel = $('#btn-timeline-event-cancel');
+  const btnTimelineEventSave = $('#btn-timeline-event-save');
+  const btnTimelineTutorial = $('#btn-timeline-tutorial');
   const timelineTutorialModal = $('#timeline-tutorial-modal');
   const btnCloseTimelineTutorial = $('#btn-close-timeline-tutorial');
   const btnDismissTimelineTutorial = $('#btn-dismiss-timeline-tutorial');
 
   // Character Codex & Relationship Web
-  const btnCodexView          = $('#btn-codex-view');
-  const menuBtnCodex          = $('#menu-btn-codex');
-  const dashboardBtnCodex     = $('#dashboard-btn-codex');
-  const btnToolbarCodex       = $('#btn-toolbar-codex');
-  const codexModal            = $('#codex-modal');
-  const btnCloseCodex         = $('#btn-close-codex');
-  const codexCharacterCount   = $('#codex-character-count');
-  const codexRelCount         = $('#codex-rel-count');
-  const codexSearch           = $('#codex-search');
-  const btnCodexModeCards     = $('#btn-codex-mode-cards');
-  const btnCodexModeWeb       = $('#btn-codex-mode-web');
-  const codexCardsView        = $('#codex-cards-view');
-  const codexWebView          = $('#codex-web-view');
-  const codexGrid             = $('#codex-grid');
-  const codexWebCanvas        = $('#codex-web-canvas');
-  const codexCharPreview      = $('#codex-char-preview') || $('#codex-web-inspector');
-  const codexWebInspector     = codexCharPreview;
-  const btnInspectorClose     = $('#btn-inspector-close');
+  const btnCodexView = $('#btn-codex-view');
+  const menuBtnCodex = $('#menu-btn-codex');
+  const dashboardBtnCodex = $('#dashboard-btn-codex');
+  const btnToolbarCodex = $('#btn-toolbar-codex');
+  const codexModal = $('#codex-modal');
+  const btnCloseCodex = $('#btn-close-codex');
+  const codexCharacterCount = $('#codex-character-count');
+  const codexRelCount = $('#codex-rel-count');
+  const codexSearch = $('#codex-search');
+  const btnCodexModeCards = $('#btn-codex-mode-cards');
+  const btnCodexModeWeb = $('#btn-codex-mode-web');
+  const codexCardsView = $('#codex-cards-view');
+  const codexWebView = $('#codex-web-view');
+  const codexGrid = $('#codex-grid');
+  const codexWebCanvas = $('#codex-web-canvas');
+  const codexCharPreview = $('#codex-char-preview') || $('#codex-web-inspector');
+  const codexWebInspector = codexCharPreview;
+  const btnInspectorClose = $('#btn-inspector-close');
   const inspectorArchetypeBadge = $('#inspector-archetype-badge');
-  const inspectorName         = $('#inspector-name');
-  const inspectorFaction      = $('#inspector-faction');
-  const inspectorBio          = $('#inspector-bio');
-  const inspectorRelsList     = $('#inspector-rels-list');
-  const btnInspectorOpenNote  = $('#btn-inspector-open-note');
-  const codexEmptyPrompt      = $('#codex-empty-prompt');
-  const btnCodexAddChar       = $('#btn-codex-add-char');
-  const btnCodexEmptyAdd      = $('#btn-codex-empty-add');
-  const btnCodexAddRel        = $('#btn-codex-add-rel');
-  const codexCharModal        = $('#codex-char-modal');
-  const codexInputName        = $('#codex-input-name');
-  const codexInputArchetype   = $('#codex-input-archetype');
-  const codexInputFaction     = $('#codex-input-faction');
-  const codexInputRole        = $('#codex-input-role');
-  const codexInputNote        = $('#codex-input-note');
-  const codexInputBio         = $('#codex-input-bio');
-  const btnCodexCharCancel    = $('#btn-codex-char-cancel');
-  const btnCodexCharSave      = $('#btn-codex-char-save');
-  const codexRelModal         = $('#codex-rel-modal');
-  const codexRelSource        = $('#codex-rel-source');
-  const codexRelType          = $('#codex-rel-type');
-  const codexRelTarget        = $('#codex-rel-target');
-  const codexRelDesc          = $('#codex-rel-desc');
-  const btnCodexRelCancel     = $('#btn-codex-rel-cancel');
-  const btnCodexRelSave       = $('#btn-codex-rel-save');
-  const btnCodexTutorial      = $('#btn-codex-tutorial');
-  const codexTutorialModal    = $('#codex-tutorial-modal');
+  const inspectorName = $('#inspector-name');
+  const inspectorFaction = $('#inspector-faction');
+  const inspectorBio = $('#inspector-bio');
+  const inspectorRelsList = $('#inspector-rels-list');
+  const btnInspectorOpenNote = $('#btn-inspector-open-note');
+  const codexEmptyPrompt = $('#codex-empty-prompt');
+  const btnCodexAddChar = $('#btn-codex-add-char');
+  const btnCodexEmptyAdd = $('#btn-codex-empty-add');
+  const btnCodexAddRel = $('#btn-codex-add-rel');
+  const codexCharModal = $('#codex-char-modal');
+  const codexInputName = $('#codex-input-name');
+  const codexInputArchetype = $('#codex-input-archetype');
+  const codexInputFaction = $('#codex-input-faction');
+  const codexInputRole = $('#codex-input-role');
+  const codexInputNote = $('#codex-input-note');
+  const codexInputBio = $('#codex-input-bio');
+  const btnCodexCharCancel = $('#btn-codex-char-cancel');
+  const btnCodexCharSave = $('#btn-codex-char-save');
+  const codexRelModal = $('#codex-rel-modal');
+  const codexRelSource = $('#codex-rel-source');
+  const codexRelType = $('#codex-rel-type');
+  const codexRelTarget = $('#codex-rel-target');
+  const codexRelDesc = $('#codex-rel-desc');
+  const btnCodexRelCancel = $('#btn-codex-rel-cancel');
+  const btnCodexRelSave = $('#btn-codex-rel-save');
+  const btnCodexTutorial = $('#btn-codex-tutorial');
+  const codexTutorialModal = $('#codex-tutorial-modal');
   const btnCloseCodexTutorial = $('#btn-close-codex-tutorial');
   const btnDismissCodexTutorial = $('#btn-dismiss-codex-tutorial');
 
   const categories = ['chapter', 'lore', 'world', 'draft'];
 
-  let activeNoteId      = null;
-  let saveTimer         = null;
-  let previewMode       = false;
-  let splitMode         = false;
-  let zenMode           = false;
+  let activeNoteId = null;
+  let saveTimer = null;
+  let previewMode = false;
+  let splitMode = false;
+  let zenMode = false;
   let pendingWikiTarget = '';
-  let switcherIndex     = 0;
-  let switcherItems     = [];
+  let switcherIndex = 0;
+  let switcherItems = [];
 
   // Word Goal & Sprint State
-  let targetWordGoal    = 500;
+  let targetWordGoal = 500;
   let sprintDurationSec = 20 * 60;
-  let sprintRemaining   = 20 * 60;
-  let sprintTimerId     = null;
-  let isSprintRunning   = false;
+  let sprintRemaining = 20 * 60;
+  let sprintTimerId = null;
+  let isSprintRunning = false;
 
   // Tutorial state
   let currentTutorialStep = 0;
@@ -685,81 +685,81 @@
   let lastCodexRels = [];
 
   // Author Typography & Writing Mode State
-  let currentEditorFont   = "'Lora', Georgia, serif";
-  let currentFontSize     = 15;
-  let currentLineHeight   = 1.8;
-  let currentTabSize      = 2;
-  let typewriterMode      = false;
-  let autoEmDash          = true;
-  let smartQuotes         = false;
-  let currentAccentTheme  = 'crimson';
-  let currentBaseTheme       = 'dark';
-  let currentAnimatedTheme   = 'none';
+  let currentEditorFont = "'Lora', Georgia, serif";
+  let currentFontSize = 15;
+  let currentLineHeight = 1.8;
+  let currentTabSize = 2;
+  let typewriterMode = false;
+  let autoEmDash = true;
+  let smartQuotes = false;
+  let currentAccentTheme = 'crimson';
+  let currentBaseTheme = 'dark';
+  let currentAnimatedTheme = 'none';
   let isFocusAutohideEnabled = true;
   let isMapRegionDrawingMode = false;
   let currentMapRegionPoints = [];
-  let activeEditingPin       = null;
-  let activeEditingRegion    = null;
-  let activeEditingChar      = null;
-  let activeEditingEvent     = null;
+  let activeEditingPin = null;
+  let activeEditingRegion = null;
+  let activeEditingChar = null;
+  let activeEditingEvent = null;
   let activeEditingGraphNode = null;
-  let currentCharImageData   = null;
+  let currentCharImageData = null;
 
   // Worldbuilding Systems State (Map, Timeline, Codex)
-  let mapCamera              = { x: 0, y: 0, zoom: 1 };
-  let mapFilter              = 'all';
-  let isMapPlacementMode     = false;
-  let isMapPanning           = false;
-  let mapPanStart            = { x: 0, y: 0 };
-  let mapDraggedPin          = null;
-  let mapDragDidMove         = false;
-  let mapDragStartX          = 0;
-  let mapDragStartY          = 0;
-  let mapTouchDist           = 0;
-  let mapTouchZoom           = 1;
-  let pendingPinClick        = { x: 50, y: 50 };
+  let mapCamera = { x: 0, y: 0, zoom: 1 };
+  let mapFilter = 'all';
+  let isMapPlacementMode = false;
+  let isMapPanning = false;
+  let mapPanStart = { x: 0, y: 0 };
+  let mapDraggedPin = null;
+  let mapDragDidMove = false;
+  let mapDragStartX = 0;
+  let mapDragStartY = 0;
+  let mapTouchDist = 0;
+  let mapTouchZoom = 1;
+  let pendingPinClick = { x: 50, y: 50 };
 
   // Map Studio State (Photoshop for Maps)
-  let isMapStudioActive      = false;
-  let isSpacePressed         = false;
-  let studioCurrentTool      = 'brush';
-  let studioBrushColor       = '#111827';
-  let studioBrushRadius      = 12;
-  let studioBrushAlpha       = 1.0;
-  let studioTerrainStyle     = 'mountains';
-  let studioShapeKind        = 'rect';
-  let studioShapeShouldFill  = false;
-  let isStudioDrawing        = false;
-  let studioStartPos         = { x: 0, y: 0 };
-  let studioPrevPos          = { x: 0, y: 0 };
-  let studioPolygonPoints    = [];
-  let mapStudioLayers        = [];
-  let activeStudioLayerId    = null;
-  let studioUndoStack        = [];
-  let studioRedoStack        = [];
+  let isMapStudioActive = false;
+  let isSpacePressed = false;
+  let studioCurrentTool = 'brush';
+  let studioBrushColor = '#111827';
+  let studioBrushRadius = 12;
+  let studioBrushAlpha = 1.0;
+  let studioTerrainStyle = 'mountains';
+  let studioShapeKind = 'rect';
+  let studioShapeShouldFill = false;
+  let isStudioDrawing = false;
+  let studioStartPos = { x: 0, y: 0 };
+  let studioPrevPos = { x: 0, y: 0 };
+  let studioPolygonPoints = [];
+  let mapStudioLayers = [];
+  let activeStudioLayerId = null;
+  let studioUndoStack = [];
+  let studioRedoStack = [];
   const MAX_STUDIO_UNDO_DEPTH = 25;
 
-  let timelineMode           = 'rail';
-  let timelineFilter         = 'all';
-  let timelineStepWidth      = 320;
-  let isTimelinePanning      = false;
-  let timelinePanStartX      = 0;
-  let timelineScrollStart    = 0;
-  let timelineTouchDist      = 0;
+  let timelineMode = 'rail';
+  let timelineFilter = 'all';
+  let timelineStepWidth = 320;
+  let isTimelinePanning = false;
+  let timelinePanStartX = 0;
+  let timelineScrollStart = 0;
+  let timelineTouchDist = 0;
   let timelineTouchStartStep = 320;
-  let timelineDidPan         = false;
+  let timelineDidPan = false;
 
-  let codexFilter            = 'all';
-  let hoveredCharId          = null;
-  let codexWebCamera         = { x: 0, y: 0, zoom: 1 };
-  let codexNodePositions     = new Map();
-  let isCodexPanning         = false;
-  let codexPanStart          = { x: 0, y: 0 };
-  let codexDraggedNode       = null;
-  let codexTouchDist         = 0;
-  let codexTouchStartZoom    = 1;
-  let codexDidDrag           = false;
-  let codexDragStartScreen   = { x: 0, y: 0 };
+  let codexFilter = 'all';
+  let hoveredCharId = null;
+  let codexWebCamera = { x: 0, y: 0, zoom: 1 };
+  let codexNodePositions = new Map();
+  let isCodexPanning = false;
+  let codexPanStart = { x: 0, y: 0 };
+  let codexDraggedNode = null;
+  let codexTouchDist = 0;
+  let codexTouchStartZoom = 1;
+  let codexDidDrag = false;
+  let codexDragStartScreen = { x: 0, y: 0 };
 
   function loadUserPreferences() {
     const s = (typeof Storage !== 'undefined' && typeof Storage.getSettings === 'function') ? Storage.getSettings() : {};
@@ -824,15 +824,15 @@
   }
 
   // Find & Replace State
-  let findMatches         = [];
-  let findCurrentIndex    = -1;
-  let findMatchCase       = false;
+  let findMatches = [];
+  let findCurrentIndex = -1;
+  let findMatchCase = false;
 
   // Intro Splash State
-  let introTimer              = null;
-  let dismissTimer            = null;
-  let tutorialTimer           = null;
-  let isIntroActive           = true;
+  let introTimer = null;
+  let dismissTimer = null;
+  let tutorialTimer = null;
+  let isIntroActive = true;
   let isInitialTutorialHandled = false;
 
   // ── Appearance & Accent Theme Palettes ──
@@ -1314,7 +1314,7 @@
           reducedMotionQuery.addListener(handleMotionChange);
         }
       }
-    } catch {}
+    } catch { }
   }
 
   // ── Init ──
@@ -1361,11 +1361,11 @@
           tutorialTimer = null;
         }
       }
-    } catch (_) {}
+    } catch (_) { }
 
     // Check startup intro skip preference
     const skipIntroPref = (typeof localStorage !== 'undefined' && localStorage.getItem('lordspey_skip_intro') === 'true') ||
-                          (Storage.getSettings() && Storage.getSettings().skipIntro === true);
+      (Storage.getSettings() && Storage.getSettings().skipIntro === true);
     if (skipIntroPref && introSplash) {
       introSplash.classList.remove('intro-animating');
       introSplash.classList.add('hidden');
@@ -1699,9 +1699,9 @@
         const action = card.dataset.action;
         let cat = 'draft', defaultTitle = 'Untitled';
         if (action === 'new-chapter') { cat = 'chapter'; defaultTitle = 'Untitled Chapter'; }
-        if (action === 'new-lore')    { cat = 'lore';    defaultTitle = 'Untitled Lore'; }
-        if (action === 'new-world')   { cat = 'world';   defaultTitle = 'Untitled Realm'; }
-        if (action === 'new-draft')   { cat = 'draft';   defaultTitle = 'Untitled Draft'; }
+        if (action === 'new-lore') { cat = 'lore'; defaultTitle = 'Untitled Lore'; }
+        if (action === 'new-world') { cat = 'world'; defaultTitle = 'Untitled Realm'; }
+        if (action === 'new-draft') { cat = 'draft'; defaultTitle = 'Untitled Draft'; }
 
         const note = Storage.createNote({
           title: defaultTitle,
@@ -1745,9 +1745,9 @@
     if (btnRibbonVault) {
       btnRibbonVault.addEventListener('click', () => {
         const anyViewOpen = (graphModal && !graphModal.classList.contains('hidden')) ||
-                            (mapModal && !mapModal.classList.contains('hidden')) ||
-                            (timelineModal && !timelineModal.classList.contains('hidden')) ||
-                            (codexModal && !codexModal.classList.contains('hidden'));
+          (mapModal && !mapModal.classList.contains('hidden')) ||
+          (timelineModal && !timelineModal.classList.contains('hidden')) ||
+          (codexModal && !codexModal.classList.contains('hidden'));
         if (anyViewOpen) {
           setActiveWorkspaceView('vault');
           if (sidebar && sidebar.classList.contains('collapsed')) {
@@ -1857,9 +1857,9 @@
           const cat = emptyBtn.dataset.category || 'draft';
           let defaultTitle = 'Untitled';
           if (cat === 'chapter') defaultTitle = 'Untitled Chapter';
-          if (cat === 'lore')    defaultTitle = 'Untitled Lore';
-          if (cat === 'world')   defaultTitle = 'Untitled Realm';
-          if (cat === 'draft')   defaultTitle = 'Untitled Draft';
+          if (cat === 'lore') defaultTitle = 'Untitled Lore';
+          if (cat === 'world') defaultTitle = 'Untitled Realm';
+          if (cat === 'draft') defaultTitle = 'Untitled Draft';
 
           const note = Storage.createNote({
             title: defaultTitle,
@@ -2302,7 +2302,7 @@
 
     // Desktop IPC / process file handler
     if (typeof window !== 'undefined') {
-      window.__handleOpenedSpeyFile = function(payload) {
+      window.__handleOpenedSpeyFile = function (payload) {
         if (!payload || !payload.content) return;
         const sig = `${payload.filePath || payload.fileName || 'bundle.spey'}:${String(payload.content).length}`;
         if (window.__LAST_STARTUP_SPEY_SIG__ && window.__LAST_STARTUP_SPEY_SIG__ === sig) {
@@ -2509,41 +2509,41 @@
     // Wiki-link clicks inside preview & backlinks panel
     if (document && document.addEventListener) {
       document.addEventListener('click', e => {
-      const wikiLink = e.target.closest('.wiki-link');
-      if (wikiLink) {
-        e.preventDefault();
-        handleWikiLinkClick(wikiLink.dataset.wiki);
-        return;
-      }
-      const backlinkCard = e.target.closest('.backlink-card');
-      if (backlinkCard) {
-        e.preventDefault();
-        openNote(backlinkCard.dataset.id);
-        return;
-      }
-      const calloutHeader = e.target.closest('.callout[data-folded] .callout-header');
-      if (calloutHeader) {
-        const callout = calloutHeader.closest('.callout');
-        if (callout) {
-          const isFolded = callout.getAttribute('data-folded') === 'true';
-          callout.setAttribute('data-folded', String(!isFolded));
+        const wikiLink = e.target.closest('.wiki-link');
+        if (wikiLink) {
+          e.preventDefault();
+          handleWikiLinkClick(wikiLink.dataset.wiki);
           return;
         }
-      }
-      const settingsTrigger = e.target.closest('#btn-project-settings, #btn-settings, #menu-btn-settings, #menu-btn-project-settings, .btn-settings-gear, [data-action="settings"], [data-action="open-settings"]');
-      if (settingsTrigger) {
-        e.preventDefault();
-        openProjectSettingsModal();
-        return;
-      }
-      const settingsCloseTrigger = e.target.closest('#btn-close-project-settings, #btn-close-settings, #btn-cancel-project-settings, #btn-cancel-settings');
-      if (settingsCloseTrigger) {
-        e.preventDefault();
-        closeProjectSettingsModal();
-        return;
-      }
-    });
-  }
+        const backlinkCard = e.target.closest('.backlink-card');
+        if (backlinkCard) {
+          e.preventDefault();
+          openNote(backlinkCard.dataset.id);
+          return;
+        }
+        const calloutHeader = e.target.closest('.callout[data-folded] .callout-header');
+        if (calloutHeader) {
+          const callout = calloutHeader.closest('.callout');
+          if (callout) {
+            const isFolded = callout.getAttribute('data-folded') === 'true';
+            callout.setAttribute('data-folded', String(!isFolded));
+            return;
+          }
+        }
+        const settingsTrigger = e.target.closest('#btn-project-settings, #btn-settings, #menu-btn-settings, #menu-btn-project-settings, .btn-settings-gear, [data-action="settings"], [data-action="open-settings"]');
+        if (settingsTrigger) {
+          e.preventDefault();
+          openProjectSettingsModal();
+          return;
+        }
+        const settingsCloseTrigger = e.target.closest('#btn-close-project-settings, #btn-close-settings, #btn-cancel-project-settings, #btn-cancel-settings');
+        if (settingsCloseTrigger) {
+          e.preventDefault();
+          closeProjectSettingsModal();
+          return;
+        }
+      });
+    }
 
     // Wiki create modal buttons
     wikicreateCancel.addEventListener('click', closeWikiCreateModal);
@@ -2624,7 +2624,7 @@
         if (typeof navigator !== 'undefined' && navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(text).then(() => {
             toast('Cheat sheet syntax copied to clipboard', 'info');
-          }).catch(() => {});
+          }).catch(() => { });
         } else {
           toast('Syntax copied', 'info');
         }
@@ -3072,7 +3072,7 @@
 
   function processIncomingSpeyFile(fileOrString, fileName = '') {
     if (typeof dismissIntroSplash === 'function') {
-      try { dismissIntroSplash(true); } catch (_) {}
+      try { dismissIntroSplash(true); } catch (_) { }
     }
     try {
       if (typeof fileOrString === 'string' || (fileOrString && typeof fileOrString === 'object' && !fileOrString.name && typeof fileOrString.slice !== 'function')) {
@@ -3101,7 +3101,7 @@
   function openSpeyImportModal(summary) {
     if (!speyImportModal) return;
     isSpeyImportModalOpen = true;
-    if (speyImportProjName) speyImportProjName.textContent = summary.projectName || 'Lord Spey Manuscript';
+    if (speyImportProjName) speyImportProjName.textContent = summary.projectName || 'Lucid Author Manuscript';
     if (speyImportFormatTag) speyImportFormatTag.textContent = summary.isSpey ? 'Native .spey Bundle · Version 1' : 'Vault JSON Backup';
     if (speyStatChapters) speyStatChapters.textContent = String(summary.chapters || 0);
     if (speyStatWords) speyStatWords.textContent = (summary.wordCount || 0).toLocaleString();
@@ -3390,8 +3390,8 @@
     if (metaEl) {
       const cleanName = fam.includes('Inter') ? 'Inter'
         : fam.includes('JetBrains') ? 'JetBrains Mono'
-        : fam.includes('Playfair') ? 'Playfair Display'
-        : 'Lora';
+          : fam.includes('Playfair') ? 'Playfair Display'
+            : 'Lora';
       metaEl.textContent = `${cleanName} · ${size}px · ${lh}×`;
     }
   }
@@ -3471,10 +3471,10 @@
 
     // 1. Project Identity
     if (settingProjectTitle) {
-      settingProjectTitle.value = settings.projectTitle || (typeof Storage !== 'undefined' && typeof Storage.getProjectTitle === 'function' ? Storage.getProjectTitle() : 'Lord Spey Manuscript');
+      settingProjectTitle.value = settings.projectTitle || (typeof Storage !== 'undefined' && typeof Storage.getProjectTitle === 'function' ? Storage.getProjectTitle() : 'Lucid Author Manuscript');
     }
     if (settingProjectAuthor) {
-      settingProjectAuthor.value = settings.projectAuthor || 'Lord Spey';
+      settingProjectAuthor.value = settings.projectAuthor || 'Lucid Author';
     }
     renderProjectSettingsStats();
 
@@ -3507,7 +3507,7 @@
 
     // 3. Appearance & Accent Theme
     const isSkipIntro = (typeof localStorage !== 'undefined' && localStorage.getItem('lordspey_skip_intro') === 'true') ||
-                        (settings && settings.skipIntro === true);
+      (settings && settings.skipIntro === true);
     if (settingIntroStarToggle) {
       settingIntroStarToggle.checked = !isSkipIntro;
     }
@@ -3797,7 +3797,7 @@
   if (typeof document !== 'undefined') {
     if (typeof document.getElementById === 'function') {
       const origGetById = document.getElementById.bind(document);
-      document.getElementById = function(id) {
+      document.getElementById = function (id) {
         if (id === 'settings-modal') return origGetById('project-settings-modal') || origGetById(id);
         if (id === 'btn-settings') return origGetById('btn-project-settings') || origGetById(id);
         if (id === 'btn-close-settings') return origGetById('btn-close-project-settings') || origGetById(id);
@@ -3809,7 +3809,7 @@
     }
     if (typeof document.querySelector === 'function') {
       const origQuery = document.querySelector.bind(document);
-      document.querySelector = function(sel) {
+      document.querySelector = function (sel) {
         if (sel === '#settings-modal') return origQuery('#project-settings-modal') || origQuery(sel);
         if (sel === '#btn-settings') return origQuery('#btn-project-settings') || origQuery(sel);
         if (sel === '#btn-close-settings') return origQuery('#btn-close-project-settings') || origQuery(sel);
@@ -3829,8 +3829,8 @@
       step: '1 of 8',
       category: 'Workspace Overview',
       icon: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>',
-      title: 'Welcome to Lord Spey',
-      desc: 'Lord Spey is your minimal, local-first author workspace crafted for novelists and worldbuilders. Inspired by Obsidian, it lets you draft chapters, organize manuscript lore, and interconnect your universe without distractions.',
+      title: 'Welcome to Lucid Author',
+      desc: 'Lucid Author is your minimal, local-first author workspace crafted for novelists and worldbuilders. Inspired by Obsidian, it lets you draft chapters, organize manuscript lore, and interconnect your universe without distractions.',
       features: [
         { icon: '•', text: '<strong>Four Dedicated Shelves:</strong> Chapters (prose & scenes), Lore (factions & relics), World (geography & realms), and Drafts (outlines & beat sheets).' },
         { icon: '•', text: '<strong>100% Private & Offline:</strong> Stored locally in your browser storage with zero latency, zero cloud tracking, and zero sign-up required.' },
@@ -4130,19 +4130,19 @@
     let before = '', after = '', insert = '';
 
     switch (action) {
-      case 'bold':          before = '**'; after = '**'; insert = sel || 'bold text'; break;
-      case 'italic':        before = '*';  after = '*';  insert = sel || 'italic text'; break;
-      case 'strike':        before = '~~'; after = '~~'; insert = sel || 'strikethrough text'; break;
-      case 'highlight':     before = '=='; after = '=='; insert = sel || 'highlighted text'; break;
-      case 'heading':       before = '## '; insert = sel || 'Heading'; break;
-      case 'wikilink':      before = '[['; after = ']]'; insert = sel || 'Note Title'; break;
-      case 'task':          before = '- [ ] '; insert = sel || 'Draft task'; break;
-      case 'quote':         before = '> ';  insert = sel || 'Quote'; break;
-      case 'callout':       before = '> [!NOTE]\n> '; insert = sel || 'Important scene detail'; break;
-      case 'ul':            before = '- ';  insert = sel || 'List item'; break;
-      case 'ol':            before = '1. '; insert = sel || 'List item'; break;
-      case 'code':          before = '`';  after = '`';  insert = sel || 'code'; break;
-      case 'link':          before = '['; after = '](url)'; insert = sel || 'link text'; break;
+      case 'bold': before = '**'; after = '**'; insert = sel || 'bold text'; break;
+      case 'italic': before = '*'; after = '*'; insert = sel || 'italic text'; break;
+      case 'strike': before = '~~'; after = '~~'; insert = sel || 'strikethrough text'; break;
+      case 'highlight': before = '=='; after = '=='; insert = sel || 'highlighted text'; break;
+      case 'heading': before = '## '; insert = sel || 'Heading'; break;
+      case 'wikilink': before = '[['; after = ']]'; insert = sel || 'Note Title'; break;
+      case 'task': before = '- [ ] '; insert = sel || 'Draft task'; break;
+      case 'quote': before = '> '; insert = sel || 'Quote'; break;
+      case 'callout': before = '> [!NOTE]\n> '; insert = sel || 'Important scene detail'; break;
+      case 'ul': before = '- '; insert = sel || 'List item'; break;
+      case 'ol': before = '1. '; insert = sel || 'List item'; break;
+      case 'code': before = '`'; after = '`'; insert = sel || 'code'; break;
+      case 'link': before = '['; after = '](url)'; insert = sel || 'link text'; break;
       case 'table':
         before = '\n\n| Column 1 | Column 2 | Column 3 |\n| :--- | :---: | ---: |\n| Data | Data | Data |\n| Data | Data | Data |\n\n';
         insert = '';
@@ -4167,13 +4167,13 @@
         }
         return;
       }
-      case 'divider':       before = '\n---\n'; insert = ''; break;
-      case 'scene':         before = '\n\n* * *\n\n'; insert = ''; break;
+      case 'divider': before = '\n---\n'; insert = ''; break;
+      case 'scene': before = '\n\n* * *\n\n'; insert = ''; break;
       // Smart Typography & Dialogue
       case 'dialogue-dash': before = '— '; insert = sel || ''; break;
-      case 'smart-quotes':  before = '“'; after = '”'; insert = sel || ''; break;
+      case 'smart-quotes': before = '“'; after = '”'; insert = sel || ''; break;
       case 'single-quotes': before = '‘'; after = '’'; insert = sel || ''; break;
-      case 'ellipsis':      before = '…'; insert = sel || ''; break;
+      case 'ellipsis': before = '…'; insert = sel || ''; break;
     }
 
     const replacement = before + insert + (after || '');
@@ -5377,8 +5377,8 @@
       if (hudConnectionsCount) {
         const itemType = node.category === 'chapter' ? (node.nodeCount === 1 ? 'chapter' : 'chapters')
           : node.category === 'lore' ? (node.nodeCount === 1 ? 'entry' : 'entries')
-          : node.category === 'world' ? (node.nodeCount === 1 ? 'entry' : 'entries')
-          : (node.nodeCount === 1 ? 'draft' : 'drafts');
+            : node.category === 'world' ? (node.nodeCount === 1 ? 'entry' : 'entries')
+              : (node.nodeCount === 1 ? 'draft' : 'drafts');
         hudConnectionsCount.textContent = `${node.nodeCount} ${itemType} in hierarchy`;
       }
       if (hudActionHint) {
@@ -5659,7 +5659,7 @@
           const already = graphEdges.some(e =>
             e.isWiki &&
             ((e.source === n && e.target === targetNode) ||
-             (e.source === targetNode && e.target === n))
+              (e.source === targetNode && e.target === n))
           );
           if (!already) {
             graphEdges.push({
@@ -6072,8 +6072,8 @@
       const titleText = meta.name.toUpperCase();
       const countLabel = meta.key === 'chapter' ? (n.nodeCount === 1 ? '1 chapter' : `${n.nodeCount} chapters`)
         : meta.key === 'lore' ? (n.nodeCount === 1 ? '1 lore entry' : `${n.nodeCount} lore entries`)
-        : meta.key === 'world' ? (n.nodeCount === 1 ? '1 location' : `${n.nodeCount} locations`)
-        : (n.nodeCount === 1 ? '1 draft' : `${n.nodeCount} drafts`);
+          : meta.key === 'world' ? (n.nodeCount === 1 ? '1 location' : `${n.nodeCount} locations`)
+            : (n.nodeCount === 1 ? '1 draft' : `${n.nodeCount} drafts`);
 
       ctx.font = '600 10.5px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif';
       const textWidth = ctx.measureText(titleText).width;
@@ -9371,7 +9371,7 @@
       const checkSelection = () => {
         if (!formatBar) return;
         const hasSelection = (noteBody.selectionStart !== undefined && noteBody.selectionStart !== noteBody.selectionEnd) ||
-                             (typeof window !== 'undefined' && typeof window.getSelection === 'function' && window.getSelection().toString().length > 0);
+          (typeof window !== 'undefined' && typeof window.getSelection === 'function' && window.getSelection().toString().length > 0);
         if (hasSelection) {
           formatBar.classList.remove('focus-autohidden');
         }
@@ -9984,7 +9984,7 @@
         if (ctx && typeof ctx.getImageData === 'function') {
           try {
             imgData = ctx.getImageData(0, 0, l.canvas.width, l.canvas.height);
-          } catch (_) {}
+          } catch (_) { }
         }
       }
       return {
@@ -10014,7 +10014,7 @@
         if (ctx && typeof ctx.getImageData === 'function') {
           try {
             imgData = ctx.getImageData(0, 0, l.canvas.width, l.canvas.height);
-          } catch (_) {}
+          } catch (_) { }
         }
       }
       return {
@@ -10047,7 +10047,7 @@
         if (ctx && typeof ctx.getImageData === 'function') {
           try {
             imgData = ctx.getImageData(0, 0, l.canvas.width, l.canvas.height);
-          } catch (_) {}
+          } catch (_) { }
         }
       }
       return {
@@ -10083,7 +10083,7 @@
           try {
             ctx.putImageData(sl.imageData, 0, 0);
             restored = true;
-          } catch (_) {}
+          } catch (_) { }
         }
         if (!restored && ctx && sl.dataUrl && typeof Image !== 'undefined') {
           const img = new Image();
@@ -11241,7 +11241,7 @@
           ctx.drawImage(customImgEl, 0, 0, w, h);
           customImgDrawn = true;
         }
-      } catch (_) {}
+      } catch (_) { }
     }
     if (!customImgDrawn && mapCanvas && typeof ctx.drawImage === 'function') {
       ctx.drawImage(mapCanvas, 0, 0, w, h);
@@ -11700,8 +11700,8 @@
         const bh = parseInt(btn.dataset.h, 10);
         const bshape = btn.dataset.shape;
         const matchesFrame = (bshape === 'oval' && frame === 'oval') ||
-                             (bshape === 'parchment' && frame === 'parchment') ||
-                             (bshape !== 'oval' && bshape !== 'parchment' && frame === 'landscape');
+          (bshape === 'parchment' && frame === 'parchment') ||
+          (bshape !== 'oval' && bshape !== 'parchment' && frame === 'landscape');
         if (bw === curW && bh === curH && matchesFrame) {
           btn.classList.add('active');
         } else {
@@ -12666,260 +12666,260 @@
     window.showMainMenu = showMainMenu;
     window.openNote = openNote;
     window.handleRequestLoadSampleVault = handleRequestLoadSampleVault;
-      window.openSampleVaultConfirmModal = openSampleVaultConfirmModal;
-      window.closeSampleVaultConfirmModal = closeSampleVaultConfirmModal;
-      window.executeLoadStarterVault = executeLoadStarterVault;
-      window.executeRestoreVaultBackup = executeRestoreVaultBackup;
-      window.showSampleRestoreBanner = showSampleRestoreBanner;
-      window.hideSampleRestoreBanner = hideSampleRestoreBanner;
-      window.switchAtlasMap = switchAtlasMap;
-      window.openAtlasMapModal = openAtlasMapModal;
-      window.closeAtlasMapModal = closeAtlasMapModal;
-      window.deleteAtlasMap = deleteAtlasMap;
-      window.updateAtlasNavigationUI = updateAtlasNavigationUI;
-      window.applyAnimatedTheme = applyAnimatedTheme;
-      window.getActiveAnimatedTheme = () => currentAnimatedTheme;
+    window.openSampleVaultConfirmModal = openSampleVaultConfirmModal;
+    window.closeSampleVaultConfirmModal = closeSampleVaultConfirmModal;
+    window.executeLoadStarterVault = executeLoadStarterVault;
+    window.executeRestoreVaultBackup = executeRestoreVaultBackup;
+    window.showSampleRestoreBanner = showSampleRestoreBanner;
+    window.hideSampleRestoreBanner = hideSampleRestoreBanner;
+    window.switchAtlasMap = switchAtlasMap;
+    window.openAtlasMapModal = openAtlasMapModal;
+    window.closeAtlasMapModal = closeAtlasMapModal;
+    window.deleteAtlasMap = deleteAtlasMap;
+    window.updateAtlasNavigationUI = updateAtlasNavigationUI;
+    window.applyAnimatedTheme = applyAnimatedTheme;
+    window.getActiveAnimatedTheme = () => currentAnimatedTheme;
 
-      // ─────────────────────────────────────────────────────────────
-      // Native Rust / Tauri v2 Bridge (`window.RustBridge`)
-      // Automatically routes to Rust commands when running inside Tauri v2
-      // (`src-tauri/src/lib.rs` & `src-tauri/src/core.rs`), with seamless
-      // synchronous/Promise fallback in browser and Electron environments.
-      // ─────────────────────────────────────────────────────────────
-      const RustBridge = {
-        isTauri() {
-          if (typeof window === 'undefined') return false;
-          return Boolean(
-            (window.__TAURI_INTERNALS__ && typeof window.__TAURI_INTERNALS__.invoke === 'function') ||
-            (window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function')
-          );
-        },
+    // ─────────────────────────────────────────────────────────────
+    // Native Rust / Tauri v2 Bridge (`window.RustBridge`)
+    // Automatically routes to Rust commands when running inside Tauri v2
+    // (`src-tauri/src/lib.rs` & `src-tauri/src/core.rs`), with seamless
+    // synchronous/Promise fallback in browser and Electron environments.
+    // ─────────────────────────────────────────────────────────────
+    const RustBridge = {
+      isTauri() {
+        if (typeof window === 'undefined') return false;
+        return Boolean(
+          (window.__TAURI_INTERNALS__ && typeof window.__TAURI_INTERNALS__.invoke === 'function') ||
+          (window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function')
+        );
+      },
 
-        async invoke(cmd, args = {}) {
-          if (typeof window !== 'undefined') {
-            if (window.__TAURI_INTERNALS__ && typeof window.__TAURI_INTERNALS__.invoke === 'function') {
-              return window.__TAURI_INTERNALS__.invoke(cmd, args);
-            }
-            if (window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function') {
-              return window.__TAURI__.core.invoke(cmd, args);
-            }
+      async invoke(cmd, args = {}) {
+        if (typeof window !== 'undefined') {
+          if (window.__TAURI_INTERNALS__ && typeof window.__TAURI_INTERNALS__.invoke === 'function') {
+            return window.__TAURI_INTERNALS__.invoke(cmd, args);
           }
-          throw new Error(`Tauri Rust runtime not active for command: ${cmd}`);
-        },
-
-        async getRuntimeInfo() {
-          if (this.isTauri()) {
-            return this.invoke('rust_runtime_info');
-          }
-          return {
-            backend: (typeof window !== 'undefined' && window.electronAPI) ? 'electron' : 'web-js',
-            version: APP_VERSION,
-            arch: 'wasm-or-js',
-            os: 'browser'
-          };
-        },
-
-        formatDurationSeconds(seconds = 0) {
-          const sec = Math.max(0, Math.floor(Number(seconds) || 0));
-          if (sec === 0) return '0m';
-          if (sec < 60) return '< 1m';
-          const totalMins = Math.floor((sec + 30) / 60);
-          if (totalMins < 60) return `${totalMins}m`;
-          const hrs = Math.floor(totalMins / 60);
-          const remMins = totalMins % 60;
-          return remMins === 0 ? `${hrs}h` : `${hrs}h ${remMins}m`;
-        },
-
-        async computeMetrics(text = '') {
-          if (this.isTauri()) {
-            return this.invoke('rust_compute_metrics', { text: String(text || '') });
-          }
-          const raw = String(text || '');
-          const chars = Array.from(raw).length;
-          const charsNoSpaces = Array.from(raw.replace(/\s+/g, '')).length;
-          const wordsArr = raw.trim() ? raw.trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)) : [];
-          const words = wordsArr.length;
-          if (words === 0) {
-            return {
-              words: 0,
-              chars,
-              charsNoSpaces,
-              sentences: 0,
-              paragraphs: 0,
-              avgSentenceLength: 0,
-              readingTimeSec: 0,
-              readingTimeFormatted: '0m',
-              speakingTimeSec: 0,
-              speakingTimeFormatted: '0m',
-              fleschReadingEase: 100,
-              readabilityLabel: 'N/A'
-            };
-          }
-          const sentences = Math.max(1, raw.split(/[.!?]+/).filter(s => /[\p{L}\p{N}]/u.test(s)).length);
-          const paragraphs = Math.max(1, raw.replace(/\r\n/g, '\n').split(/\n\s*\n/).filter(p => p.trim().length > 0).length);
-          const avgSentenceLength = Math.round((words / sentences) * 10) / 10;
-          const readingTimeSec = Math.ceil((words / 225) * 60);
-          const speakingTimeSec = Math.ceil((words / 130) * 60);
-
-          let totalSyllables = 0;
-          for (const w of wordsArr) {
-            totalSyllables += countSyllablesInWord(w);
-          }
-          const asl = words / sentences;
-          const asw = totalSyllables / words;
-          const rawFlesch = 206.835 - (1.015 * asl) - (84.6 * asw);
-          const fleschReadingEase = Math.round(Math.max(0, Math.min(100, rawFlesch)) * 10) / 10;
-          let readabilityLabel = 'Dense / Academic Lore';
-          if (fleschReadingEase >= 80) readabilityLabel = 'Accessible / Swift Pace';
-          else if (fleschReadingEase >= 60) readabilityLabel = 'Standard Literary Fiction';
-          else if (fleschReadingEase >= 40) readabilityLabel = 'Rich / Elevated Prose';
-
-          return {
-            words,
-            chars,
-            charsNoSpaces,
-            sentences,
-            paragraphs,
-            avgSentenceLength,
-            readingTimeSec,
-            readingTimeFormatted: this.formatDurationSeconds(readingTimeSec),
-            speakingTimeSec,
-            speakingTimeFormatted: this.formatDurationSeconds(speakingTimeSec),
-            fleschReadingEase,
-            readabilityLabel
-          };
-        },
-
-        async extractWikiLinks(markdown = '') {
-          if (this.isTauri()) {
-            return this.invoke('rust_extract_wiki_links', { markdown: String(markdown || '') });
-          }
-          const links = [];
-          const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
-          let inCode = false;
-          for (let i = 0; i < lines.length; i++) {
-            const line = lines[i];
-            if (line.trim().startsWith('```')) {
-              inCode = !inCode;
-              continue;
-            }
-            if (inCode) continue;
-            // Strip inline code spans (`...`) so code examples don't produce phantom wiki-links
-            const cleanedLine = line.replace(/`[^`\n]*`/g, '');
-            const re = /\[\[([^|\[\]\n]+)(?:\|([^\[\]\n]*))?\]\]/g;
-            let m;
-            while ((m = re.exec(cleanedLine)) !== null) {
-              const target = (m[1] || '').trim();
-              const alias = (m[2] !== undefined ? m[2].trim() : '') || target;
-              if (target) {
-                links.push({ target, alias, line: i + 1 });
-              }
-            }
-          }
-          return links;
-        },
-
-        async extractOutline(markdown = '') {
-          if (this.isTauri()) {
-            return this.invoke('rust_extract_outline', { markdown: String(markdown || '') });
-          }
-          const entries = [];
-          const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
-          let inCode = false;
-          for (let i = 0; i < lines.length; i++) {
-            const trimmed = lines[i].trim();
-            if (trimmed.startsWith('```')) {
-              inCode = !inCode;
-              continue;
-            }
-            if (inCode) continue;
-            if (/^(?:\*\s*){3,}$/.test(trimmed) && /\s/.test(trimmed)) {
-              entries.push({ level: 0, text: '* * * (Scene Break)', line: i + 1, isSceneBreak: true });
-              continue;
-            }
-            const hm = trimmed.match(/^(#{1,6})\s+(.+)$/);
-            if (hm) {
-              entries.push({ level: hm[1].length, text: hm[2].trim(), line: i + 1, isSceneBreak: false });
-            }
-          }
-          return entries;
-        },
-
-        async renderMarkdown(markdown = '') {
-          if (this.isTauri()) {
-            return this.invoke('rust_render_markdown', { markdown: String(markdown || '') });
-          }
-          return (typeof Markdown !== 'undefined' && Markdown.render) ? Markdown.render(String(markdown || '')) : String(markdown || '');
-        },
-
-        async validateSpeyPackage(jsonStr = '') {
-          if (this.isTauri()) {
-            return this.invoke('rust_validate_spey_package', { jsonStr: String(jsonStr || '') });
-          }
-          const parsed = typeof jsonStr === 'string' ? JSON.parse(jsonStr) : jsonStr;
-          const notes = Array.isArray(parsed) ? parsed : (parsed && Array.isArray(parsed.notes) ? parsed.notes : null);
-          if (!notes) throw new Error("Missing 'notes' array in .spey package");
-          let chapters = 0, lore = 0, world = 0, drafts = 0, wordCount = 0;
-          for (const n of notes) {
-            const c = String((n && n.category) || 'draft').toLowerCase();
-            if (c === 'chapter') chapters++;
-            else if (c === 'lore') lore++;
-            else if (c === 'world') world++;
-            else drafts++;
-            const body = String((n && n.body) || '').trim();
-            if (body) wordCount += body.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;
-          }
-          return {
-            valid: true,
-            format: (parsed && parsed.format) || 'lord-spey-package',
-            version: (parsed && parsed.version) || 1,
-            projectName: (parsed && parsed.projectName) || 'Untitled Project',
-            stats: {
-              totalNotes: notes.length,
-              chapters,
-              lore,
-              world,
-              drafts,
-              wordCount,
-              mapPins: (parsed && Array.isArray(parsed.mapPins)) ? parsed.mapPins.length : 0,
-              timelineEvents: (parsed && Array.isArray(parsed.timelineEvents)) ? parsed.timelineEvents.length : 0,
-              characters: (parsed && Array.isArray(parsed.characters)) ? parsed.characters.length : 0,
-              relationships: (parsed && Array.isArray(parsed.relationships)) ? parsed.relationships.length : 0
-            }
-          };
-        },
-
-        async readSpeyFile(filePath) {
-          return this.invoke('rust_read_spey_file', { path: String(filePath || '') });
-        },
-
-        async writeSpeyFile(filePath, content) {
-          const str = typeof content === 'string' ? content : JSON.stringify(content, null, 2);
-          return this.invoke('rust_write_spey_file', { path: String(filePath || ''), content: str });
-        },
-
-        async checkStartupSpeyFile() {
-          if (!this.isTauri()) return null;
-          try {
-            const payload = await this.invoke('rust_get_startup_spey');
-            if (payload && payload.content && typeof window !== 'undefined' && typeof window.__handleOpenedSpeyFile === 'function') {
-              const sig = `${payload.filePath || payload.fileName || 'bundle.spey'}:${String(payload.content).length}`;
-              if (!window.__LAST_STARTUP_SPEY_SIG__ || window.__LAST_STARTUP_SPEY_SIG__ !== sig) {
-                window.__LAST_STARTUP_SPEY_SIG__ = sig;
-                window.__handleOpenedSpeyFile(payload);
-              }
-            }
-            return payload || null;
-          } catch (_) {
-            return null;
+          if (window.__TAURI__ && window.__TAURI__.core && typeof window.__TAURI__.core.invoke === 'function') {
+            return window.__TAURI__.core.invoke(cmd, args);
           }
         }
-      };
+        throw new Error(`Tauri Rust runtime not active for command: ${cmd}`);
+      },
 
-      window.RustBridge = RustBridge;
-      if (RustBridge.isTauri()) {
-        RustBridge.checkStartupSpeyFile();
+      async getRuntimeInfo() {
+        if (this.isTauri()) {
+          return this.invoke('rust_runtime_info');
+        }
+        return {
+          backend: (typeof window !== 'undefined' && window.electronAPI) ? 'electron' : 'web-js',
+          version: APP_VERSION,
+          arch: 'wasm-or-js',
+          os: 'browser'
+        };
+      },
+
+      formatDurationSeconds(seconds = 0) {
+        const sec = Math.max(0, Math.floor(Number(seconds) || 0));
+        if (sec === 0) return '0m';
+        if (sec < 60) return '< 1m';
+        const totalMins = Math.floor((sec + 30) / 60);
+        if (totalMins < 60) return `${totalMins}m`;
+        const hrs = Math.floor(totalMins / 60);
+        const remMins = totalMins % 60;
+        return remMins === 0 ? `${hrs}h` : `${hrs}h ${remMins}m`;
+      },
+
+      async computeMetrics(text = '') {
+        if (this.isTauri()) {
+          return this.invoke('rust_compute_metrics', { text: String(text || '') });
+        }
+        const raw = String(text || '');
+        const chars = Array.from(raw).length;
+        const charsNoSpaces = Array.from(raw.replace(/\s+/g, '')).length;
+        const wordsArr = raw.trim() ? raw.trim().split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)) : [];
+        const words = wordsArr.length;
+        if (words === 0) {
+          return {
+            words: 0,
+            chars,
+            charsNoSpaces,
+            sentences: 0,
+            paragraphs: 0,
+            avgSentenceLength: 0,
+            readingTimeSec: 0,
+            readingTimeFormatted: '0m',
+            speakingTimeSec: 0,
+            speakingTimeFormatted: '0m',
+            fleschReadingEase: 100,
+            readabilityLabel: 'N/A'
+          };
+        }
+        const sentences = Math.max(1, raw.split(/[.!?]+/).filter(s => /[\p{L}\p{N}]/u.test(s)).length);
+        const paragraphs = Math.max(1, raw.replace(/\r\n/g, '\n').split(/\n\s*\n/).filter(p => p.trim().length > 0).length);
+        const avgSentenceLength = Math.round((words / sentences) * 10) / 10;
+        const readingTimeSec = Math.ceil((words / 225) * 60);
+        const speakingTimeSec = Math.ceil((words / 130) * 60);
+
+        let totalSyllables = 0;
+        for (const w of wordsArr) {
+          totalSyllables += countSyllablesInWord(w);
+        }
+        const asl = words / sentences;
+        const asw = totalSyllables / words;
+        const rawFlesch = 206.835 - (1.015 * asl) - (84.6 * asw);
+        const fleschReadingEase = Math.round(Math.max(0, Math.min(100, rawFlesch)) * 10) / 10;
+        let readabilityLabel = 'Dense / Academic Lore';
+        if (fleschReadingEase >= 80) readabilityLabel = 'Accessible / Swift Pace';
+        else if (fleschReadingEase >= 60) readabilityLabel = 'Standard Literary Fiction';
+        else if (fleschReadingEase >= 40) readabilityLabel = 'Rich / Elevated Prose';
+
+        return {
+          words,
+          chars,
+          charsNoSpaces,
+          sentences,
+          paragraphs,
+          avgSentenceLength,
+          readingTimeSec,
+          readingTimeFormatted: this.formatDurationSeconds(readingTimeSec),
+          speakingTimeSec,
+          speakingTimeFormatted: this.formatDurationSeconds(speakingTimeSec),
+          fleschReadingEase,
+          readabilityLabel
+        };
+      },
+
+      async extractWikiLinks(markdown = '') {
+        if (this.isTauri()) {
+          return this.invoke('rust_extract_wiki_links', { markdown: String(markdown || '') });
+        }
+        const links = [];
+        const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+        let inCode = false;
+        for (let i = 0; i < lines.length; i++) {
+          const line = lines[i];
+          if (line.trim().startsWith('```')) {
+            inCode = !inCode;
+            continue;
+          }
+          if (inCode) continue;
+          // Strip inline code spans (`...`) so code examples don't produce phantom wiki-links
+          const cleanedLine = line.replace(/`[^`\n]*`/g, '');
+          const re = /\[\[([^|\[\]\n]+)(?:\|([^\[\]\n]*))?\]\]/g;
+          let m;
+          while ((m = re.exec(cleanedLine)) !== null) {
+            const target = (m[1] || '').trim();
+            const alias = (m[2] !== undefined ? m[2].trim() : '') || target;
+            if (target) {
+              links.push({ target, alias, line: i + 1 });
+            }
+          }
+        }
+        return links;
+      },
+
+      async extractOutline(markdown = '') {
+        if (this.isTauri()) {
+          return this.invoke('rust_extract_outline', { markdown: String(markdown || '') });
+        }
+        const entries = [];
+        const lines = String(markdown || '').replace(/\r\n/g, '\n').split('\n');
+        let inCode = false;
+        for (let i = 0; i < lines.length; i++) {
+          const trimmed = lines[i].trim();
+          if (trimmed.startsWith('```')) {
+            inCode = !inCode;
+            continue;
+          }
+          if (inCode) continue;
+          if (/^(?:\*\s*){3,}$/.test(trimmed) && /\s/.test(trimmed)) {
+            entries.push({ level: 0, text: '* * * (Scene Break)', line: i + 1, isSceneBreak: true });
+            continue;
+          }
+          const hm = trimmed.match(/^(#{1,6})\s+(.+)$/);
+          if (hm) {
+            entries.push({ level: hm[1].length, text: hm[2].trim(), line: i + 1, isSceneBreak: false });
+          }
+        }
+        return entries;
+      },
+
+      async renderMarkdown(markdown = '') {
+        if (this.isTauri()) {
+          return this.invoke('rust_render_markdown', { markdown: String(markdown || '') });
+        }
+        return (typeof Markdown !== 'undefined' && Markdown.render) ? Markdown.render(String(markdown || '')) : String(markdown || '');
+      },
+
+      async validateSpeyPackage(jsonStr = '') {
+        if (this.isTauri()) {
+          return this.invoke('rust_validate_spey_package', { jsonStr: String(jsonStr || '') });
+        }
+        const parsed = typeof jsonStr === 'string' ? JSON.parse(jsonStr) : jsonStr;
+        const notes = Array.isArray(parsed) ? parsed : (parsed && Array.isArray(parsed.notes) ? parsed.notes : null);
+        if (!notes) throw new Error("Missing 'notes' array in .spey package");
+        let chapters = 0, lore = 0, world = 0, drafts = 0, wordCount = 0;
+        for (const n of notes) {
+          const c = String((n && n.category) || 'draft').toLowerCase();
+          if (c === 'chapter') chapters++;
+          else if (c === 'lore') lore++;
+          else if (c === 'world') world++;
+          else drafts++;
+          const body = String((n && n.body) || '').trim();
+          if (body) wordCount += body.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length;
+        }
+        return {
+          valid: true,
+          format: (parsed && parsed.format) || 'lord-spey-package',
+          version: (parsed && parsed.version) || 1,
+          projectName: (parsed && parsed.projectName) || 'Untitled Project',
+          stats: {
+            totalNotes: notes.length,
+            chapters,
+            lore,
+            world,
+            drafts,
+            wordCount,
+            mapPins: (parsed && Array.isArray(parsed.mapPins)) ? parsed.mapPins.length : 0,
+            timelineEvents: (parsed && Array.isArray(parsed.timelineEvents)) ? parsed.timelineEvents.length : 0,
+            characters: (parsed && Array.isArray(parsed.characters)) ? parsed.characters.length : 0,
+            relationships: (parsed && Array.isArray(parsed.relationships)) ? parsed.relationships.length : 0
+          }
+        };
+      },
+
+      async readSpeyFile(filePath) {
+        return this.invoke('rust_read_spey_file', { path: String(filePath || '') });
+      },
+
+      async writeSpeyFile(filePath, content) {
+        const str = typeof content === 'string' ? content : JSON.stringify(content, null, 2);
+        return this.invoke('rust_write_spey_file', { path: String(filePath || ''), content: str });
+      },
+
+      async checkStartupSpeyFile() {
+        if (!this.isTauri()) return null;
+        try {
+          const payload = await this.invoke('rust_get_startup_spey');
+          if (payload && payload.content && typeof window !== 'undefined' && typeof window.__handleOpenedSpeyFile === 'function') {
+            const sig = `${payload.filePath || payload.fileName || 'bundle.spey'}:${String(payload.content).length}`;
+            if (!window.__LAST_STARTUP_SPEY_SIG__ || window.__LAST_STARTUP_SPEY_SIG__ !== sig) {
+              window.__LAST_STARTUP_SPEY_SIG__ = sig;
+              window.__handleOpenedSpeyFile(payload);
+            }
+          }
+          return payload || null;
+        } catch (_) {
+          return null;
+        }
       }
+    };
+
+    window.RustBridge = RustBridge;
+    if (RustBridge.isTauri()) {
+      RustBridge.checkStartupSpeyFile();
+    }
 
   }
 

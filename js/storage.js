@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   Storage Module — Lord Spey Author's Workspace
+   Storage Module — Lucid Author Author's Workspace
    localStorage persistence & clean vault management
    ═══════════════════════════════════════════════ */
 
@@ -962,12 +962,12 @@ Confidential author reference sheet for character backstories, plot twists, psyc
       if (dataUrl) {
         localStorage.setItem(key, dataUrl);
         if (activeId === 'default') {
-          try { localStorage.setItem('lordspey_map_image_default', dataUrl); } catch {}
+          try { localStorage.setItem('lordspey_map_image_default', dataUrl); } catch { }
         }
       } else {
         localStorage.removeItem(key);
         if (activeId === 'default') {
-          try { localStorage.removeItem('lordspey_map_image_default'); } catch {}
+          try { localStorage.removeItem('lordspey_map_image_default'); } catch { }
         }
       }
       return true;
@@ -1042,7 +1042,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
     }
   }
 
-  // ── Lord Spey Universe Atlas: Multi-Tier Celestial Cartography & Registry ──
+  // ── Lucid Author Universe Atlas: Multi-Tier Celestial Cartography & Registry ──
 
   function getMapRegistry() {
     try {
@@ -1061,7 +1061,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
     try {
       const raw = localStorage.getItem(MAP_DATA_KEY);
       if (raw) rawData = JSON.parse(raw);
-    } catch {}
+    } catch { }
 
     const shape = (rawData && rawData.shape) || getMapShape() || 'landscape';
     const dims = getDimensionsForShape(shape, rawData && rawData.width, rawData && rawData.height);
@@ -1123,7 +1123,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
       if (curData) {
         localStorage.setItem(`lordspey_map_data_${prevActiveId}`, curData);
       }
-    } catch {}
+    } catch { }
 
     // Load new map data into MAP_DATA_KEY
     try {
@@ -1148,11 +1148,11 @@ Confidential author reference sheet for character backstories, plot twists, psyc
         };
         localStorage.setItem(MAP_DATA_KEY, JSON.stringify(freshMapData));
       }
-    } catch {}
+    } catch { }
 
     try {
       localStorage.setItem(ACTIVE_MAP_ID_KEY, newMapId);
-    } catch {}
+    } catch { }
     return newMapId;
   }
 
@@ -1226,7 +1226,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
           celestialTheme: updated.celestialTheme,
           orbitalRings: updated.orbitalRings
         });
-      } catch {}
+      } catch { }
     }
     return updated;
   }
@@ -1271,7 +1271,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
     try {
       localStorage.removeItem(`lordspey_map_data_${id}`);
       localStorage.removeItem(`lordspey_map_image_${id}`);
-    } catch {}
+    } catch { }
 
     if (getActiveMapId() === id) {
       setActiveMapId(newParentId || 'default');
@@ -1309,8 +1309,8 @@ Confidential author reference sheet for character backstories, plot twists, psyc
 
     const childName = opts.name || opts.title || (
       childTier === 'system' ? `${(parent && (parent.title || parent.name)) || 'Star'} System` :
-      childTier === 'world' ? `${(parent && (parent.title || parent.name)) || 'Planet'} Surface` :
-      `${(parent && (parent.title || parent.name)) || 'Station'} Sector`
+        childTier === 'world' ? `${(parent && (parent.title || parent.name)) || 'Planet'} Surface` :
+          `${(parent && (parent.title || parent.name)) || 'Station'} Sector`
     );
 
     const childCelestialTheme = (childTier === 'galaxy' || childTier === 'system')
@@ -1504,7 +1504,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
           const regArr = JSON.parse(regRaw);
           if (Array.isArray(regArr)) regMap = regArr.find(m => m.id === mapId) || null;
         }
-      } catch {}
+      } catch { }
 
       const shape = parsed.shape || (regMap && regMap.shape) || getMapShape() || 'landscape';
       const dims = getDimensionsForShape(shape, parsed.width || (regMap && regMap.width), parsed.height || (regMap && regMap.height));
@@ -1544,7 +1544,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
           const regArr = JSON.parse(regRaw);
           if (Array.isArray(regArr)) regMap = regArr.find(m => m.id === mapId) || null;
         }
-      } catch {}
+      } catch { }
       const shape = (regMap && regMap.shape) || getMapShape() || 'landscape';
       const dims = getDimensionsForShape(shape);
       const tier = (regMap && regMap.tier) || 'world';
@@ -1675,7 +1675,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
       try {
         localStorage.setItem(storageKey, JSON.stringify(toStore));
         if (mapId === activeId) {
-          try { localStorage.setItem(`lordspey_map_data_${activeId}`, JSON.stringify(toStore)); } catch {}
+          try { localStorage.setItem(`lordspey_map_data_${activeId}`, JSON.stringify(toStore)); } catch { }
         }
       } catch (quotaErr) {
         console.warn('Map data quota exceeded. Attempting compressed save...', quotaErr);
@@ -1711,7 +1711,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
           if (mapData.tier) reg[existingIdx].tier = mapData.tier;
           _saveMapRegistry(reg);
         }
-      } catch {}
+      } catch { }
 
       return getMap(mapId);
     } catch (e) {
@@ -2476,7 +2476,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
     if (notes.length > 0 && notes[0].title && notes[0].title.trim()) {
       return notes[0].title.trim();
     }
-    return 'Lord Spey Manuscript';
+    return 'Lucid Author Manuscript';
   }
 
   function getWorkspaceStats() {
@@ -2542,18 +2542,18 @@ Confidential author reference sheet for character backstories, plot twists, psyc
           const parsed = JSON.parse(rawMap);
           hasDrawing = !!(parsed && (parsed.drawingData || (Array.isArray(parsed.layers) && parsed.layers.some(l => l && l.dataUrl))));
         }
-      } catch (_) {}
+      } catch (_) { }
 
       return (!notes || notes.length === 0) &&
-             (!rawPins || rawPins.length === 0) &&
-             (!rawEvents || rawEvents.length === 0) &&
-             (!rawChars || rawChars.length === 0) &&
-             (!rawRegions || rawRegions.length === 0) &&
-             (!rawNodes || rawNodes.length === 0) &&
-             (!rawSections || rawSections.length === 0) &&
-             (!rawRels || rawRels.length === 0) &&
-             !customMap &&
-             !hasDrawing;
+        (!rawPins || rawPins.length === 0) &&
+        (!rawEvents || rawEvents.length === 0) &&
+        (!rawChars || rawChars.length === 0) &&
+        (!rawRegions || rawRegions.length === 0) &&
+        (!rawNodes || rawNodes.length === 0) &&
+        (!rawSections || rawSections.length === 0) &&
+        (!rawRels || rawRels.length === 0) &&
+        !customMap &&
+        !hasDrawing;
     } catch {
       return false;
     }
@@ -2568,7 +2568,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
           const parsed = JSON.parse(rawMap);
           if (parsed && (parsed.drawingData || (Array.isArray(parsed.layers) && parsed.layers.some(l => l && l.dataUrl)))) return false;
         }
-      } catch (_) {}
+      } catch (_) { }
 
       // 1. Starter Notes
       const notes = (getAllNotes() || []).filter(n => n && typeof n === 'object');
@@ -2643,9 +2643,9 @@ Confidential author reference sheet for character backstories, plot twists, psyc
     return {
       format: 'lord-spey-package',
       version: 1,
-      appName: 'Lord Spey',
-      projectName: 'Lord Spey Sample Universe',
-      title: 'Lord Spey Sample Universe',
+      appName: 'Lucid Author',
+      projectName: 'Lucid Author Sample Universe',
+      title: 'Lucid Author Sample Universe',
       notes: JSON.parse(JSON.stringify(STARTER_NOTES)),
       mapPins: JSON.parse(JSON.stringify(STARTER_PINS)),
       timelineEvents: JSON.parse(JSON.stringify(STARTER_TIMELINE)),
@@ -2663,11 +2663,11 @@ Confidential author reference sheet for character backstories, plot twists, psyc
   function createBackup() {
     const rawNotes = getAllNotes();
     const notes = Array.isArray(rawNotes) ? rawNotes : [];
-    const projTitle = (typeof getProjectTitle === 'function' && getProjectTitle()) || 'Lord Spey Manuscript';
+    const projTitle = (typeof getProjectTitle === 'function' && getProjectTitle()) || 'Lucid Author Manuscript';
     const snapshot = {
       format: 'lord-spey-package',
       version: 1,
-      appName: 'Lord Spey',
+      appName: 'Lucid Author',
       projectName: projTitle,
       title: projTitle,
       timestamp: new Date().toISOString(),
@@ -2677,7 +2677,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
       mapsData: getAllMapsData(),
       mapPins: getAllMapPins('all'),
       customMapImage: getCustomMapImage(),
-      customImages: (function() {
+      customImages: (function () {
         const out = {};
         const reg = getMapRegistry();
         reg.forEach(m => {
@@ -2718,7 +2718,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
         console.warn('Unable to persist light backup snapshot to localStorage:', e2);
         try {
           localStorage.removeItem(BACKUP_KEY);
-        } catch (_) {}
+        } catch (_) { }
       }
     }
 
@@ -2762,7 +2762,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
   function exportSpeyPackage(options = {}) {
     const stats = getWorkspaceStats();
     const rawTitle = (options.projectTitle && typeof options.projectTitle === 'string' && options.projectTitle.trim()) || getProjectTitle();
-    const projectTitle = typeof rawTitle === 'string' ? rawTitle.trim() : 'Lord Spey Manuscript';
+    const projectTitle = typeof rawTitle === 'string' ? rawTitle.trim() : 'Lucid Author Manuscript';
     const safeBase = projectTitle
       .replace(/[<>:"/\\|?*]/g, '')
       .replace(/\s+/g, '_')
@@ -2772,7 +2772,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
     const pkg = {
       format: 'lord-spey-package',
       version: 1,
-      appName: 'Lord Spey',
+      appName: 'Lucid Author',
       exportedAt: new Date().toISOString(),
       projectName: projectTitle,
       title: projectTitle,
@@ -2802,7 +2802,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
       mapShape: getMapShape(),
       mapRegions: getAllMapRegions('all'),
       customMapImage: getCustomMapImage(),
-      customImages: (function() {
+      customImages: (function () {
         const out = {};
         const reg = getMapRegistry();
         reg.forEach(m => {
@@ -2858,7 +2858,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
     if (Array.isArray(data)) {
       return { valid: true, isSpey: false, data: { notes: data } };
     }
-    return { valid: false, error: 'Unrecognized format: Expected Lord Spey package (.spey) or vault JSON' };
+    return { valid: false, error: 'Unrecognized format: Expected Lucid Author package (.spey) or vault JSON' };
   }
 
   function parseSpeyPackage(raw) {
@@ -2921,7 +2921,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
       (typeof d.title === 'string' && d.title.trim()) ||
       (firstChap && typeof firstChap.title === 'string' && firstChap.title.trim()) ||
       (firstNote && typeof firstNote.title === 'string' && firstNote.title.trim()) ||
-      'Lord Spey Project';
+      'Lucid Author Project';
 
     return {
       projectName: title,
@@ -2979,12 +2979,12 @@ Confidential author reference sheet for character backstories, plot twists, psyc
         }
         localStorage.removeItem(MAPS_REGISTRY_KEY);
         localStorage.removeItem(ACTIVE_MAP_ID_KEY);
-      } catch {}
+      } catch { }
 
       if (Array.isArray(d.mapsRegistry) && d.mapsRegistry.length > 0) {
         _saveMapRegistry(d.mapsRegistry);
         if (d.activeMapId) {
-          try { localStorage.setItem(ACTIVE_MAP_ID_KEY, d.activeMapId); } catch {}
+          try { localStorage.setItem(ACTIVE_MAP_ID_KEY, d.activeMapId); } catch { }
         }
       }
       if (d.mapsData && typeof d.mapsData === 'object') {
@@ -2992,7 +2992,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
           if (d.mapsData[mid]) {
             try {
               localStorage.setItem(`lordspey_map_data_${mid}`, JSON.stringify(d.mapsData[mid]));
-            } catch {}
+            } catch { }
           }
         });
       }
@@ -3203,7 +3203,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
             if (d.mapsData && d.mapsData[m.id]) {
               try {
                 localStorage.setItem(`lordspey_map_data_${m.id}`, JSON.stringify(d.mapsData[m.id]));
-              } catch {}
+              } catch { }
             }
           }
         });
@@ -3468,7 +3468,7 @@ Confidential author reference sheet for character backstories, plot twists, psyc
   function exportJSON() {
     const data = {
       version: 2,
-      appName: 'Lord Spey',
+      appName: 'Lucid Author',
       exportedAt: new Date().toISOString(),
       notes: getAllNotes(),
       mapPins: getAllMapPins(),
@@ -3554,7 +3554,7 @@ ${note.body || ''}`;
 
   function _datestamp() {
     const d = new Date();
-    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
   }
 
   return {
@@ -3633,7 +3633,7 @@ ${note.body || ''}`;
     getMap,
     saveMap,
     clearMapDrawing,
-    // Lord Spey Universe Atlas: Multi-Tier Celestial Cartography & Registry
+    // Lucid Author Universe Atlas: Multi-Tier Celestial Cartography & Registry
     getMapRegistry,
     getAllMaps: getMapRegistry,
     getActiveMapId,
