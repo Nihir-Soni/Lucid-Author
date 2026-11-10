@@ -1,0 +1,18 @@
+{
+  "name": "Lucid Author",
+  "version": "2.2.0",
+  "description": "Minimal Obsidian-inspired author's workspace for drafts, lore, and worldbuilding.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tests/run_all.js"
+  },
+  "keywords": [
+    "author",
+    "writing",
+    "obsidian",
+    "markdown",
+    "novel",
+    "worldbuilding"
+  ]
+}
