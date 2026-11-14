@@ -2829,10 +2829,12 @@ body.focus-mode .format-bar:hover {
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(5px);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 100;
   animation: fadeIn 150ms ease;
+  overflow-y: auto;
+  padding: 20px 0;
 }
 .modal-overlay.hidden {
   display: none !important;
@@ -2850,6 +2852,8 @@ body.focus-mode .format-bar:hover {
   padding: 24px;
   width: 100%;
   max-width: 420px;
+  max-height: 90vh;
+  overflow-y: auto;
   box-shadow: var(--shadow-lg);
   animation: slideUp 200ms ease;
 }
